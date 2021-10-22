@@ -1,0 +1,16 @@
+/* Estilo del menu superior */
+.br-rojoPastel{
+    background-color:#272626 !important;
+}
+
+.br-rojoPastel > ul > li > a{
+    color: #ffff !important;
+}
+
+.error{
+    color: red !important;
+}
+
+.b1{
+    border: 1px solid;
+}
