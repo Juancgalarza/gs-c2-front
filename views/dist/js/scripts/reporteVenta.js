@@ -43,7 +43,6 @@ $(function(){
                     // el tipo de información que se espera de respuesta
                     dataType : 'json',
                     success : function(response) { 
-                        console.log(response);
                         if(response.lista.length > 0){
                             let tr = '';
                             let i = 1;

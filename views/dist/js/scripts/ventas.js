@@ -10,6 +10,7 @@
         guardarVenta();
         buscarProducto();
         buscarCliente();
+        generarCodigo();
     }
 
     function getUsuario(){
@@ -242,7 +243,6 @@
 
     function reset(){
         $('#venta-id').val('');
-        $('#venta-serie').val('');
         $('#venta-descuento-input').val('0.00');
         $('#venta-cliente-id').val('');
         $('#venta-cliente-nombre').val('');
@@ -273,7 +273,6 @@
             // el tipo de información que se espera de respuesta
             dataType : 'json',
             success : function(response) {
-                console.log(response);
                 if(response.status){
                     Swal.fire(
                         'Venta!',
@@ -281,6 +280,7 @@
                         'success'
                     );
                     calcularTotal();
+                    guardarCodigo();
                     reset();
                 }else{
                     Swal.fire({
@@ -395,6 +395,59 @@
                     // console.log('Petición realizada');
                 }
             });
+        });
+    }
+
+    function generarCodigo(){
+        $.ajax({
+            // la URL para la petición
+            url : urlServidor + 'venta/generar_codigo/ventas',
+            // especifica si será una petición POST o GET
+            type : 'GET',
+            // el tipo de información que se espera de respuesta
+            dataType : 'json',
+            success : function(response) {
+               if(response.status){
+                   $('#venta-serie').val(response.codigo);
+               }
+            },
+            error : function(jqXHR, status, error) {
+                console.log('Disculpe, existió un problema');
+            },
+            complete : function(jqXHR, status) {
+                // console.log('Petición realizada');
+            }
+        }); 
+    }
+
+    function guardarCodigo(){
+        let codigo = $('#venta-serie').val();
+
+        let json = {
+            codigo: {
+                codigo: codigo,
+                tipo: 'ventas'
+            }
+        }
+
+        $.ajax({
+            // la URL para la petición
+            url : urlServidor + 'venta/aumentarCodigo',
+            // especifica si será una petición POST o GET
+            type : 'POST',
+            data : "data=" + JSON.stringify(json),
+            // el tipo de información que se espera de respuesta
+            dataType : 'json',
+            success : function(response) {
+                console.log(response); 
+                generarCodigo();
+            },
+            error : function(jqXHR, status, error) {
+                console.log('Disculpe, existió un problema');
+            },
+            complete : function(jqXHR, status) {
+                // console.log('Petición realizada');
+            }
         });
     }
 /* }); */

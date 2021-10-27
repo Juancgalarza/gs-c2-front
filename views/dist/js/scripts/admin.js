@@ -19,7 +19,6 @@ $(function(){
                 // el tipo de información que se espera de respuesta
                 dataType : 'json',
                 success : function(response) {
-                    console.log(response);
                     if(response.status){
                         $('#conta-cliente').text(response.cantidad);
                     }      
@@ -44,7 +43,6 @@ $(function(){
                 // el tipo de información que se espera de respuesta
                 dataType : 'json',
                 success : function(response) {
-                    console.log(response);
                     if(response.status){
                         $('#conta-prod').text(response.cantidad);
                     }      
@@ -119,7 +117,6 @@ $(function(){
                 // el tipo de información que se espera de respuesta
                 dataType : 'json',
                 success : function(response) {
-                    console.log(response);
                     if(response.status){
                         $('#conta-proveedor').text(response.cantidad);
                     }      
@@ -144,7 +141,6 @@ $(function(){
                 // el tipo de información que se espera de respuesta
                 dataType : 'json',
                 success : function(response) {
-                    console.log(response);
                     if(response.status){
                         $('#conta-catg').text(response.cantidad);
                     }      
@@ -169,7 +165,6 @@ $(function(){
                 // el tipo de información que se espera de respuesta
                 dataType : 'json',
                 success : function(response) {
-                    console.log(response);
                     if(response.status){
                         $('#conta-usu').text(response.cantidad);
                     }      

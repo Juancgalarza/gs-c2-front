@@ -27,16 +27,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Recordar credenciales
-              </label>
-            </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-4">
+          <div class="col-12">
             <button type="submit" class="btn btn-danger btn-block" id="login-ingresar">Ingresar</button>
           </div>
           <!-- /.col -->
@@ -44,7 +35,7 @@
       </form>
 
       <p class="mt-4 mb-1">
-        <a href="forgot-password.html" class="text-danger">Olvidé mi clave</a>
+        <a href="recuperar" class="text-dark"> <b>Olvidé mi clave</b> </a>
       </p>
       <!-- <p class="mb-0">
         <a href="register.html" class="text-center">Register a new membership</a>

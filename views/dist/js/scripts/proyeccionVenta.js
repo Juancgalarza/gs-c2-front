@@ -27,7 +27,6 @@ $(function(){
                     // el tipo de información que se espera de respuesta
                     dataType : 'json',
                     success : function(response) { 
-                        console.log(response);
                         if(response.status){
                             let tr = '';
                             let i = 1;

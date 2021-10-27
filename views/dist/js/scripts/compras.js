@@ -11,6 +11,7 @@
         reset();
         buscarProveedor();
         buscarProducto();
+        generarCodigo();
     }
 
     function getUsuario(){
@@ -285,6 +286,7 @@
                         'success'
                     );
                     reset();
+                    guardarCodigo();
                 }else{
                     Swal.fire({
                         title: 'Error!',
@@ -416,6 +418,59 @@
                     // console.log('Petición realizada');
                 }
             });
+        });
+    }
+
+    function generarCodigo(){
+        $.ajax({
+            // la URL para la petición
+            url : urlServidor + 'compra/generar_codigo/compras',
+            // especifica si será una petición POST o GET
+            type : 'GET',
+            // el tipo de información que se espera de respuesta
+            dataType : 'json',
+            success : function(response) {
+               if(response.status){
+                   $('#compras-serie').val(response.codigo);
+               }
+            },
+            error : function(jqXHR, status, error) {
+                console.log('Disculpe, existió un problema');
+            },
+            complete : function(jqXHR, status) {
+                // console.log('Petición realizada');
+            }
+        }); 
+    }
+
+    function guardarCodigo(){
+        let codigo = $('#compras-serie').val();
+
+        let json = {
+            codigo: {
+                codigo: codigo,
+                tipo: 'compras'
+            }
+        }
+
+        $.ajax({
+            // la URL para la petición
+            url : urlServidor + 'compra/aumentarCodigo',
+            // especifica si será una petición POST o GET
+            type : 'POST',
+            data : "data=" + JSON.stringify(json),
+            // el tipo de información que se espera de respuesta
+            dataType : 'json',
+            success : function(response) {
+                console.log(response); 
+                generarCodigo();
+            },
+            error : function(jqXHR, status, error) {
+                console.log('Disculpe, existió un problema');
+            },
+            complete : function(jqXHR, status) {
+                // console.log('Petición realizada');
+            }
         });
     }
 

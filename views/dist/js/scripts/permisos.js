@@ -70,7 +70,6 @@ $(function(){
                             <label for="permiso-item-${element.padre.id}" class="custom-control-label">${element.padre.menu}</label>
                         </div>
                     </td>`;
-                        console.log(element);
                         for (let j = 0; j < element.hijos.length; j++) {
                             const item = element.hijos[j];
                             //console.log(item);

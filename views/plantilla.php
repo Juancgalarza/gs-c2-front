@@ -10,6 +10,9 @@
     }else
     if(isset($_GET['url']) && $_GET['url'] == 'login'){
         require_once 'views/pages/login.php';
+    }else
+    if(isset($_GET['url']) && $_GET['url'] == 'recuperar'){
+        require_once 'views/pages/recuperarPassword.php';
     }
     else{
         $controller = new Controller();

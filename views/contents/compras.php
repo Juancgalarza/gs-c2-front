@@ -29,7 +29,7 @@
                             <div class="col-12 col-md-6 mb-2">
                                 <div class="form-group">
                                     <label for=""># de Serie</label>
-                                    <input id="compras-serie" type="text" class="form-control" placeholder="# de Serie">
+                                    <input id="compras-serie" type="text" readOnly class="form-control" placeholder="# de Serie">
 
                                 </div>
                             </div>
