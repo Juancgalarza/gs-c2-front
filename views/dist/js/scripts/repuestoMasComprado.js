@@ -46,7 +46,7 @@ $(function(){
                     $('#fin-reporte').text(hasta);
                     $.ajax({
                         // la URL para la petición
-                        url : urlServidor + 'venta/frecuentes/' + desde + '/' + hasta + '/' + top,
+                        url : urlServidor + 'compra/frecuentes/' + desde + '/' + hasta + '/' + top,
                         // especifica si será una petición POST o GET
                         type : 'GET',
                         // el tipo de información que se espera de respuesta
@@ -61,7 +61,7 @@ $(function(){
                                         <td>${i}</td>
                                         <td>${element.producto.nombre}</td>
                                         <td>${element.cantidad}</td>
-                                        <td>${element.producto.precio_venta}</td>
+                                        <td>${element.producto.precio_compra}</td>
                                         <td>${element.total}</td>
                                     </tr>`; 
                                     i++;
@@ -71,10 +71,10 @@ $(function(){
                                 $('#tabla-reporte').removeClass('d-none');
     
                                 let donutData        = {
-                                    labels: response.data.masVendidos.labels,
+                                    labels: response.data.masComprados.labels,
                                     datasets: [
                                       {
-                                        data: response.data.masVendidos.data,
+                                        data: response.data.masComprados.data,
                                         backgroundColor : ['#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de', '#ffff00','#f56954', '#00a65a'],
                                       }
                                     ]
@@ -83,11 +83,11 @@ $(function(){
                                   //Create pie or douhnut chart
                                   // You can switch between pie and douhnut using the method below.
                                   $('#box-canva1').html('');
-                                  let canvas = `<canvas id="mas-vendidos"
+                                  let canvas = `<canvas id="mas-comprados"
                                   style="min-height: 250px; height: 250px; max-height: 300px; max-width: 100%; margin-top: 22px"></canvas>`;
                                   $('#box-canva1').html(canvas);
     
-                                  var pieChartCanvas = document.getElementById('mas-vendidos').getContext('2d');
+                                  var pieChartCanvas = document.getElementById('mas-comprados').getContext('2d');
                                   var pieData        = donutData;
                                   var pieOptions     = {
                                       maintainAspectRatio : false,
@@ -113,11 +113,11 @@ $(function(){
                     
                                   
                                 $('#box-canva2').html('');
-                                let canvas2 = `<canvas id="mas-vendidos-porcentaje"
+                                let canvas2 = `<canvas id="mas-comprados-porcentaje"
                                 style="min-height: 250px; height: 250px; max-height: 300px; max-width: 100%; margin-top: 22px"></canvas>`;
                                 $('#box-canva2').html(canvas2);
     
-                                var piePorcentaje = $('#mas-vendidos-porcentaje').get(0).getContext('2d')
+                                var piePorcentaje = $('#mas-comprados-porcentaje').get(0).getContext('2d')
                                 var pieDataPorcentaje        = graficoPorcentaje;
                                 var pieOptionsPorcentaje     = {
                                 maintainAspectRatio : false,

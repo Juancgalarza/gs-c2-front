@@ -55,7 +55,7 @@
                 <div class="row">
                     <div class="col-6 col-md-6 col-lg-9 " style="padding-left: 60px">
                         <h3><b>BAURSA</b></h3>
-                        <h6>VENTAS MENSUALES</h6>
+                        <h6>EQUIÓS MÁS VENDIDOS</h6>
                         <h6 class="text-danger">DESDE: <span class="text-dark" id="inicio-reporte">2021/01/10</span> -
                             HASTA: <span id="fin-reporte" class="text-dark">2021/05/15</span>
                         </h6>
@@ -85,13 +85,7 @@
                                             </tr>
                                         </thead>
                                         <tbody id="body-mas-comprado">
-                                            <!-- <tr>
-                                                <td>1</td>
-                                                <td>Ruliman</td>
-                                                <td>10</td>
-                                                <td>$20</td>
-                                                <td>$200.50</td>
-                                            </tr> -->
+                                           
                                         </tbody>
                                     </table>
                                 </div>
