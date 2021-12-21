@@ -59,7 +59,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-dark">
-                <h4 class="modal-title">Factura de la Compra</h4>
+                <h4 class="modal-title">Comprobante de Compra</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -68,15 +68,12 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card card-dark" id="factura-compra">
-                            <div class="card-header">
-                                Factura
-                            </div>
 
                             <div class="card-body" style="background-color: white;">
                                 <div class="factura">
                                     <div class="factura-header">
                                         <div>
-                                            <h2 class="lead p-4 factura-title">Factura N° <b id="compra_id"></b></h2>
+                                            <h2 class="lead p-4 factura-title">Comprobante N° <b id="compra_id"></b></h2>
                                         </div>
 
                                         <div class="factura-header-prov" style="overflow: auto;">

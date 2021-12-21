@@ -59,7 +59,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-dark">
-                <h4 class="modal-title">Factura de la Venta</h4>
+                <h4 class="modal-title">Comprobante de Venta</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -79,7 +79,7 @@
                                                     <div class="row">
                                                         <div class="col-12 col-md-4">
                                                             <div>
-                                                                <h2 class="lead p-4 factura-title">Factura N° <b
+                                                                <h2 class="lead p-4 factura-title">Comprobante N° <b
                                                                         id="compra_id"></b></h2>
                                                             </div>
                                                         </div>

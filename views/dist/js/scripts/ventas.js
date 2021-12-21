@@ -188,7 +188,7 @@
             let total = $('#venta-totalg').text();
 
             let object = array_producto();
-            console.log(object);
+            //console.log(object);
 
             let json = {
                 venta: {

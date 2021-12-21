@@ -425,11 +425,13 @@
         $.ajax({
             // la URL para la petición
             url : urlServidor + 'compra/generar_codigo/compras',
+
             // especifica si será una petición POST o GET
             type : 'GET',
             // el tipo de información que se espera de respuesta
             dataType : 'json',
             success : function(response) {
+                   /*  console.log(response); */
                if(response.status){
                    $('#compras-serie').val(response.codigo);
                }

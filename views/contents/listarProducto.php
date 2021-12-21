@@ -70,6 +70,69 @@
 </div>
 <!-- /.content-wrapper -->
 
+<!-- Modales -->
+<div class="modal fade" id="actualizar_producto">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h4 class="modal-title">Actualizar Producto</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="contanier-fluid">
+                    <form method="POST" id="update-cliente">
+
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <input type="hidden" id="upd-producto-id">
+                                <label for="">Código</label>
+                                <input type="text" class="form-control solo-numeros" readOnly placeholder="Código"
+                                    id="upd-codigo" readonly maxlength="10" minlength="10">
+                            </div>
+                            <div class="col-6 form-group">
+                                <label for="">Nombre</label>
+                                <input type="text" class="form-control solo-letras" placeholder="Nombre"
+                                    id="upd-nombre">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <label for="exampleInputPassword1">Categoría</label>
+                                <select class="form-control" id="upd-categoria" name="categoria">
+                                    <!-- <option>Seleccione una Categoría</option> -->
+                                </select>
+                            </div>
+                            <div class="col-6 form-group">
+                                <label for="">Precio Venta</label>
+                                <input type="text" class="form-control solo-numeros" placeholder="Stock" id="upd-precio-venta">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 form-group">
+                                <label for="exampleInputEmail1">Descripción</label>
+                                <textarea class="form-control" id="upd-descripcion" rows="2"
+                                    placeholder="Descripción"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row text-right">
+                        <div class="col-12">
+                            <button id="btn-update" class="btn btn-danger"><i
+                                    class="far fa-check-circle mr-2"></i>Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
 <script src="<?=BASE?>views/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?=BASE?>views/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="<?=BASE?>views/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
