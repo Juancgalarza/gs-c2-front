@@ -55,7 +55,7 @@
                 <div class="row">
                     <div class="col-6 col-md-6 col-lg-9 " style="padding-left: 60px">
                         <h3><b>BAURSA</b></h3>
-                        <h6>EQUIÓS MÁS VENDIDOS</h6>
+                        <h6>EQUIPOS MÁS VENDIDOS</h6>
                         <h6 class="text-danger">DESDE: <span class="text-dark" id="inicio-reporte">2021/01/10</span> -
                             HASTA: <span id="fin-reporte" class="text-dark">2021/05/15</span>
                         </h6>
