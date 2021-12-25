@@ -12,6 +12,7 @@
         buscarProveedor();
         buscarProducto();
         generarCodigo();
+        cancelarFormulario();
     }
 
     function getUsuario(){
@@ -473,6 +474,12 @@
             complete : function(jqXHR, status) {
                 // console.log('Petición realizada');
             }
+        });
+    }
+
+    function cancelarFormulario(){
+        $('#btn-cancelar').click(function(){
+            window.location.href = urlCliente + 'inicio/administrador';
         });
     }
 

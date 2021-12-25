@@ -5,6 +5,7 @@ $(function(){
         validarFormulario();
         guardarCliente();
         changeCedula();
+        cancelarFormulario();
     }
 
     function validarFormulario(){
@@ -18,7 +19,7 @@ $(function(){
                 },
                 nombres : {
                     required: true,
-                    minlength: 5
+                    minlength: 4
                 },
                 apellidos: {
                     required: true,
@@ -41,7 +42,7 @@ $(function(){
                 },
                 nombres: {
                     required: "Ingrese nombre para el cliente",
-                    minlength: "Debe tener mínimo 5 carácteres"
+                    minlength: "Debe tener mínimo 4 carácteres"
                 },
                 apellidos: {
                     required: "Ingrese apellido para el cliente",
@@ -250,6 +251,12 @@ $(function(){
                     confirmButtonText: 'Ok'
                   });
             }
+        });
+    }
+
+    function cancelarFormulario(){
+        $('#btn-cancelar').click(function(){
+            window.location.href = urlCliente + 'inicio/administrador';
         });
     }
 });

@@ -4,6 +4,7 @@ $(function(){
     function _init(){
         validarFormulario();
         guardarProveedor();
+        cancelarFormulario();
     }
 
     function validarFormulario(){
@@ -157,6 +158,12 @@ $(function(){
             complete : function(jqXHR, status) {
                 // console.log('Petición realizada');
             }
+        });
+    }
+
+    function cancelarFormulario(){
+        $('#btn-cancelar').click(function(){
+            window.location.href = urlCliente + 'inicio/administrador';
         });
     }
 });

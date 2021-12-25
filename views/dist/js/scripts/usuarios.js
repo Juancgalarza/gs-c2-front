@@ -6,6 +6,7 @@ $(function(){
         cargarRoles();
         guardarNuevoUsuario();
         changeCedula();
+        cancelarFormulario();
     }
 
     function cargarRoles(){
@@ -117,7 +118,7 @@ $(function(){
                 },
                 img: {
                     required: "Ingrese una imagen para el usuario",
-                }
+                },
             },
             errorElement: 'span',
             errorPlacement: function (error, element) {
@@ -466,5 +467,11 @@ $(function(){
                 }
             });
         }
+    }
+
+    function cancelarFormulario(){
+        $('#btn-cancelar').click(function(){
+            window.location.href = urlCliente + 'inicio/administrador';
+        });
     }
 });

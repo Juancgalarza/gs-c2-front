@@ -6,6 +6,7 @@ $(function(){
         crearCategoria();
         iniciar_tabla();
         actualizar_categoria();
+        cancelarFormulario();
     }
 
     function crearCategoria(){
@@ -205,6 +206,12 @@ $(function(){
         })
     }
 
+    function cancelarFormulario(){
+        $('#btn-cancelar').click(function(){
+            window.location.href = urlCliente + 'inicio/administrador';
+        });
+    }
+
 });
 
 function iniciar_tabla_aux(){
@@ -288,15 +295,21 @@ function ver_producto(id){
         success : function(response) {
             console.log(response); 
             $('#modal-producto').modal("show");  
-            let li = '';
+            let tr = '';
+            let i = 1;
             if(response){
                 if(response.producto.length > 0){
                     response.producto.forEach(element => {
-                        li +=  `<li class="mb-2">${element.nombre}</li>`;
+                        tr += `<tr>
+                            <td>${i}</td>
+                            <td style="display: none">${element.id}</td>
+                            <td>${element.nombre}</td>
+                        </tr>`;
+                        i++;
                     });
                 }
             }  
-            $('#body-productos-categoria').html(li);       
+            $('#body-productos-categoria').html(tr);       
         },
         error : function(jqXHR, status, error) {
             console.log('Disculpe, existió un problema');

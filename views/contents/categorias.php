@@ -18,8 +18,11 @@
                 <label class="mr-2" style="margin-top: 7px;">Nombre</label>
                 <input type="text" class="form-control" placeholder="Nueva categoría" minlength="4" required
                     id="texto-categoria">
-                <button class="btn btn-danger ml-2" id="nueva-categoria">
+                <button class="btn btn-primary ml-2" id="nueva-categoria">
                     <i class="fas fa-save"></i>
+                </button>
+                <button class="btn btn-danger ml-2" id="btn-cancelar">
+                    <i class="fas fa-times"></i>
                 </button>
             </div>
         </div>
@@ -74,13 +77,22 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <blockquote>
-                        <div class="col-12">
-                            <ol id="body-productos-categoria">
-                                <!-- <li class="mb-2">Lorem ipsum dolor sit amet</li> -->
-                            </ol>
+                    <div class="col-12">
+                        <div class="div" style="overflow: auto;">
+                            <table id="tabla-categorias" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10px">#</th>
+                                        <th style="display: none">ID</th>
+                                        <th>Nombre del Producto</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="body-productos-categoria">
+
+                                </tbody>
+                            </table>
                         </div>
-                    </blockquote>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer justify-content-between">

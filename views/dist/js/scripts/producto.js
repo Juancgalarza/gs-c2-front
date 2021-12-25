@@ -6,6 +6,7 @@ $(function(){
         cargarCategorias();
         validar_form();
         guardar();
+        cancelarFormulario();
     }
 
     function cargarCategorias(){
@@ -93,7 +94,7 @@ $(function(){
     }
 
     function validando(json){
-        if(json.codigo.length == 0){
+        if(json.producto.codigo.length == 0){
             Swal.fire(
                 'Producto',
                 'Ingrese un código',
@@ -101,16 +102,16 @@ $(function(){
               );
             return false;
         }else
-        if(json.categoria_id == '0'){     
+        if(json.producto.categoria_id == '0'){     
               return false;
         }else
-        if(json.nombre.length == 0){
+        if(json.producto.nombre.length == 0){
             return false;
         }else
-        if(json.precio_venta.length == 0){
+        if(json.producto.precio_venta.length == 0){
             return false
         }else
-        if(json.fecha.length == 0){
+        if(json.producto.fecha.length == 0){
             return false;
         }
         else{
@@ -128,52 +129,32 @@ $(function(){
             let descripcion = $('#descripcion-producto').val();
             let precio_venta = $('#precio-venta-producto').val();
             let fecha = $('#fecha-producto').val();
-            let imagen = $('#imagen-producto')[0].files[0];
+            let img = $('#imagen-producto')[0].files[0];
+
+            let def = (img == undefined) ? 'producto-default.png' : img.name;
 
             let json = {
-                categoria_id : id_categoria,
-                codigo : codigo,
-                nombre : nombre,
-                descripcion : descripcion,
-                precio_venta : precio_venta,
-                fecha : fecha,
-                img : imagen
+                producto: {
+                    categoria_id : id_categoria,
+                    codigo : codigo,
+                    nombre : nombre,
+                    descripcion : descripcion,
+                    precio_venta : precio_venta,
+                    fecha : fecha,
+                    img : def
+                }
             };
 
-            let formdata = new FormData();
-
-            if(validando(json)){
-                if(imagen == undefined){
-                    json.img = 'producto-default.png';
-                    //formdata.append('producto',json);
-                }else{
-                    //subir archivo
-                    if(imagen.type == 'image/jpeg'  || imagen.type == 'image/jpg' || imagen.type == 'image/png'){
-                        json.img = imagen.name;
-                        guardarNuevo(json,imagen);
-                    }else{
-                        Swal.fire(
-                            'Producto',
-                            'Tipo de archivo no admitido',
-                            'error'
-                          )
-                    }
-                }  
-            }else{
+            if(!validando(json)){
                 console.log('formulario incorrecto')
+            }else{
+                guardarNuevo(json);
             }
 
         });
     }
 
-    function guardarNuevo(data,imagen){
-
-        let json = {
-            producto: data
-        }
-        let formdata = new FormData();
-        formdata.append('fichero',imagen);
-
+    function guardarNuevo(json){
         $.ajax({
             // la URL para la petición
             url : urlServidor + 'producto/save',
@@ -191,28 +172,7 @@ $(function(){
                         'success'
                     );
 
-                    $('#formulario-producto')[0].reset();
-
-                    $.ajax({
-                        // la URL para la petición
-                        url : urlServidor + 'producto/fichero',
-                        data : formdata,
-                        contentType: false,
-                        processData: false, 
-                        // especifica si será una petición POST o GET
-                        type : 'POST',
-                        // el tipo de información que se espera de respuesta
-                        dataType : 'json',
-                        success : function(response) {
-                            //console.log(response);
-                        },
-                        error : function(jqXHR, status, error) {
-                            console.log('Disculpe, existió un problema');
-                        },
-                        complete : function(jqXHR, status) {
-                            // console.log('Petición realizada');
-                        }
-                    }); 
+                    $('#formulario-producto')[0].reset();   
 
                 }else{
                     Swal.fire({
@@ -230,6 +190,41 @@ $(function(){
             complete : function(jqXHR, status) {
                 // console.log('Petición realizada');
             }
+        });
+
+        if(json.producto.img == 'producto-default.png'){
+
+        }else{
+            let img = $('#imagen-producto')[0].files[0];
+            let formdata = new FormData();
+            formdata.append('fichero',img);
+
+            $.ajax({
+                // la URL para la petición
+                url : urlServidor + 'producto/fichero',
+                data : formdata,
+                contentType: false,
+                processData: false, 
+                // especifica si será una petición POST o GET
+                type : 'POST',
+                // el tipo de información que se espera de respuesta
+                dataType : 'json',
+                success : function(response) {
+                    //console.log(response);
+                },
+                error : function(jqXHR, status, error) {
+                    console.log('Disculpe, existió un problema');
+                },
+                complete : function(jqXHR, status) {
+                    // console.log('Petición realizada');
+                }
+            }); 
+        }
+    }
+
+    function cancelarFormulario(){
+        $('#btn-cancelar').click(function(){
+            window.location.href = urlCliente + 'inicio/administrador';
         });
     }
 

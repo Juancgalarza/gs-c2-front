@@ -109,29 +109,31 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-6">
+            <div class="col-12">
                 <div class="card card-warning">
                     <div class="card-header">
                         <h3 class="card-title">Compras Anuales</h3>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" style="background: white;">
                         <div class="chart">
                             <canvas id="compra-box"
-                                style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                                style="min-height: 250px; height: 350px; max-height: 350px; max-width: 100%;"></canvas>
                         </div>
                     </div>
                     <!-- /.card-body -->
                 </div>
             </div>
-            <div class="col-12 col-md-6">
+        </div>
+        <div class="row">
+            <div class="col-12">
                 <div class="card card-success">
                     <div class="card-header">
                         <h3 class="card-title">Ventas Anuales</h3>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" style="background: white;">
                         <div class="chart">
                             <canvas id="venta-box"
-                                style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                                style="min-height: 250px; height: 350px; max-height: 350px; max-width: 100%;"></canvas>
                         </div>
                     </div>
                     <!-- /.card-body -->

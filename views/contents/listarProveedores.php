@@ -32,9 +32,6 @@
         <div class="row">
             <div class="col-12">
                 <div class="card card-outline card-danger">
-                    <div class="card-header">
-                        <h3 class="card-title">Listado de Proveedores</h3>
-                    </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                         <div class="div" style="overflow: auto;">

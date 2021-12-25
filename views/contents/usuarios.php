@@ -114,8 +114,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card-footer text-center">
-                                        <button type="submit" class="btn btn-danger">Guardar</button>
+                                    <div class="card-footer">
+                                        <button type="submit" class="btn btn-primary"><i class="far fa-save mr-2"></i>Guardar</button>
+                                        <button type="button" class="btn btn-danger" id="btn-cancelar"><i class="fas fa-times mr-2"></i>Cancelar</button>
                                     </div>
                                 </form>
                             </div>

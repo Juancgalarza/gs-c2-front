@@ -29,7 +29,8 @@
                             <div class="col-12 col-md-6 mb-2">
                                 <div class="form-group">
                                     <label for=""># de Serie</label>
-                                    <input id="compras-serie" type="text" readOnly class="form-control" placeholder="# de Serie">
+                                    <input id="compras-serie" type="text" readOnly class="form-control"
+                                        placeholder="# de Serie">
 
                                 </div>
                             </div>
@@ -59,33 +60,35 @@
 
                         <div class="row">
                             <div class="col-12">
-                                <button class="btn btn-outline-danger mb-4" data-toggle="modal"
+                                <button class="btn btn-outline-danger mb-3" data-toggle="modal"
                                     data-target="#modal-proveedor" data-backdrop="static" data-keyboard="false"><i
                                         class="fas fa-search mr-2"></i>Buscar
                                     Proveedor</button>
                             </div>
+                        </div>
+                        <div class="row">
                             <input type="hidden" id="prov-id">
-                            <div class="col-12 col-md-6 mb-2">
+                            <div class="col-12 col-md-3">
                                 <div class="form-group">
                                     <label for="">RUC</label>
                                     <input id="prov-ruc" type="text" readOnly class="form-control" placeholder="RUC">
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6 mb-2">
+                            <div class="col-12 col-md-3">
                                 <div class="form-group">
                                     <label for="">Razón Social</label>
                                     <input id="prov-razon-social" type="text" readOnly class="form-control"
                                         placeholder="Razón Social">
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6 mb-2">
+                            <div class="col-12 col-md-3">
                                 <div class="form-group">
                                     <label for="">Correo</label>
                                     <input id="prov-correo" type="text" readOnly class="form-control"
                                         placeholder="Correo">
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6 mb-2">
+                            <div class="col-12 col-md-3">
                                 <div class="form-group">
                                     <label for="">Teléfono</label>
                                     <input id="prov-telefono" type="text" readOnly class="form-control"
@@ -96,12 +99,14 @@
 
                         <div class="row">
                             <div class="col-12">
-                                <button class="btn btn-outline-danger mb-4" data-toggle="modal"
+                                <button class="btn btn-outline-danger mb-3" data-toggle="modal"
                                     data-target="#modal-producto" data-backdrop="static" data-keyboard="false"><i
                                         class="fas fa-search mr-2"></i>Buscar
                                     Producto</button>
                             </div>
-                            <div class="col-12 col-md-6 mb-2">
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-3">
                                 <input type="hidden" id="prod-id">
                                 <div class="form-group">
                                     <label for="">Nombre</label>
@@ -109,21 +114,21 @@
                                         placeholder="Nombre">
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6 mb-2">
+                            <div class="col-12 col-md-2">
                                 <div class="form-group">
                                     <label for="">Stock</label>
                                     <input id="prod-stock" type="text" readOnly class="form-control"
                                         placeholder="Stock">
                                 </div>
                             </div>
-                            <div class="col-12 col-md-5 mb-2">
+                            <div class="col-12 col-md-2">
                                 <div class="form-group">
                                     <label for="">Cantidad</label>
                                     <input id="pro-cantidad" type="text" class="form-control numeros-vd"
                                         placeholder="Cantidad">
                                 </div>
                             </div>
-                            <div class="col-12 col-md-5 mb-2">
+                            <div class="col-12 col-md-3">
                                 <div class="form-group">
                                     <label for="">Precio de Compra</label>
                                     <input id="prod-precio-compra" type="text" class="form-control"
@@ -207,9 +212,14 @@
                             </div>
                         </div>
 
-                        <button class="btn btn-danger float-right" id="guardar-compra"><i
-                                class="fas fa-cart-plus mr-2"></i>Guardar
-                            Compra</button>
+                        <div class="text-right">
+                            <button class="btn btn-primary" id="guardar-compra"><i
+                                    class="fas fa-cart-plus mr-2"></i>Guardar
+                                Compra</button>
+                            <button class="btn btn-danger mr-2" id="btn-cancelar"><i
+                                    class="fas fa-times mr-2"></i>Cancelar
+                                Compra</button>
+                        </div>
                     </div>
 
                     <!-- /.card-body -->
