@@ -6,7 +6,7 @@
                 <h1 class="m-0">Usuarios</h1>
             </div>
             <div class="col-sm-6 text-right">
-                <a class="btn btn-primary" id="agregar-rol-modal">
+                <a class="btn btn-primary btn-sm" id="agregar-rol-modal">
                     <i class="fas fa-plus mr-2"></i>
                     Agregar Rol</a>
             </div>
@@ -121,9 +121,9 @@
                                         </div>
                                     </div>
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary"><i
+                                        <button type="submit" class="btn btn-primary btn-sm"><i
                                                 class="far fa-save mr-2"></i>Guardar</button>
-                                        <button type="button" class="btn btn-danger" id="btn-cancelar"><i
+                                        <button type="button" class="btn btn-danger btn-sm" id="btn-cancelar"><i
                                                 class="fas fa-times mr-2"></i>Cancelar</button>
                                     </div>
                                 </form>

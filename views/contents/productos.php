@@ -25,38 +25,42 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12 col-md-6">
-
-
-
-
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Código</label>
-                                        <input type="text" name="codigo" class="form-control" id="codigo-producto"
-                                            placeholder="Código">
+                                        <input type="text" name="codigo" class="form-control form-control-sm"
+                                            id="codigo-producto" placeholder="Código">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nombre</label>
-                                        <input type="text" name="nombre" class="form-control" id="nombre-producto"
-                                            placeholder="Nombre">
+                                        <input type="text" name="nombre" class="form-control form-control-sm"
+                                            id="nombre-producto" placeholder="Nombre">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-12 col-md-6">
+                                <!--  <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Precio Venta</label>
                                         <input type="text" name="precio_venta" class="form-control"
                                             id="precio-venta-producto" placeholder="Precio Venta">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Categoría</label>
-                                        <select class="form-control" id="select-categoria" name="categoria">
+                                        <select class="form-control form-control-sm" id="select-categoria"
+                                            name="categoria">
                                             <!-- <option>Seleccione una Categoría</option> -->
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Fecha</label>
+                                        <input type="text" class="form-control form-control-sm" id="fecha-producto"
+                                            name="fecha" placeholder="Descripción" value="<?=date('d/m/Y')?>">
                                     </div>
                                 </div>
                             </div>
@@ -65,7 +69,7 @@
                                     <div class="form-group">
                                         <label for="imagen-producto">Imagen</label>
                                         <div class="input-group">
-                                            <div class="custom-file">
+                                            <div class="custom-file form-control-sm">
                                                 <input type="file" name="img" id="imagen-producto"
                                                     class="custom-file-input" accept="image/*">
                                                 <label class="custom-file-label" for="exampleInputFile">Subir
@@ -79,22 +83,19 @@
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Fecha</label>
-                                        <input type="date" class="form-control" id="fecha-producto" name="fecha"
-                                            placeholder="Descripción">
+                                        <label for="exampleInputEmail1">Descripcion</label>
+                                        <textarea class="form-control form-control-sm" id="descripcion-producto"
+                                            rows="2" placeholder="Descripción"></textarea>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Descripcion</label>
-                                <textarea class="form-control" id="descripcion-producto" rows="2"
-                                    placeholder="Descripción"></textarea>
                             </div>
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary"><i class="far fa-save mr-2"></i>Guardar</button>
-                            <button type="button" class="btn btn-danger" id="btn-cancelar"><i class="fas fa-times mr-2"></i>Cancelar</button>
+                            <button type="submit" class="btn btn-primary btn-sm"><i
+                                    class="far fa-save mr-2"></i>Guardar</button>
+                            <button type="button" class="btn btn-danger btn-sm" id="btn-cancelar"><i
+                                    class="fas fa-times mr-2"></i>Cancelar</button>
                         </div>
                     </form>
                 </div>

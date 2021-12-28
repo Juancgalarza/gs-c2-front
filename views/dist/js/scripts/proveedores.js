@@ -177,7 +177,7 @@ $(function(){
     }
 
     function validarCedula(cedula){
-        if(cedula.length == 13 && cedula + 001){
+        if(cedula.length == 13 && cedula + '001'){
         
             //Obtenemos el digito de la region que sonlos dos primeros digitos
             var digito_region = cedula.substring(0,2);

@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center form-group flex-column">
                 <label for="">Rol</label>
-                <select class="form-control" id="select-rol">
+                <select class="form-control form-control-sm" id="select-rol">
                     <!--  <option>option 1</option> -->
                 </select>
             </div>

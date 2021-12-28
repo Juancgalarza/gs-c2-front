@@ -108,9 +108,6 @@ $(function(){
         if(json.producto.nombre.length == 0){
             return false;
         }else
-        if(json.producto.precio_venta.length == 0){
-            return false
-        }else
         if(json.producto.fecha.length == 0){
             return false;
         }
@@ -127,7 +124,7 @@ $(function(){
             let codigo = $('#codigo-producto').val();
             let nombre = $('#nombre-producto').val();
             let descripcion = $('#descripcion-producto').val();
-            let precio_venta = $('#precio-venta-producto').val();
+            //let precio_venta = $('#precio-venta-producto').val();
             let fecha = $('#fecha-producto').val();
             let img = $('#imagen-producto')[0].files[0];
 
@@ -139,7 +136,6 @@ $(function(){
                     codigo : codigo,
                     nombre : nombre,
                     descripcion : descripcion,
-                    precio_venta : precio_venta,
                     fecha : fecha,
                     img : def
                 }
