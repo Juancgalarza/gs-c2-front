@@ -21,46 +21,18 @@
                             <i class="fas fa-shopping-cart"></i>
                             Nueva Compra
                         </h3>
+                        <div class="card-tools">
+                            <div class="col-12">
+                                <span> <b>Número de Serie:</b> <b id="compras-serie"></b> </span>
+                            </div>
+                        </div>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <div class="row">
-                            <input type="hidden" id="compra-id">
-                            <div class="col-12 col-md-6 mb-2">
-                                <div class="form-group">
-                                    <label for=""># de Serie</label>
-                                    <input id="compras-serie" type="text" readOnly class="form-control"
-                                        placeholder="# de Serie">
-
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 mb-2">
-                                <div class="form-group">
-                                    <label for="">Fecha de Compra</label>
-                                    <input id="compra-fecha" type="text" readOnly class="form-control"
-                                        placeholder="Fecha de Compra" value="<?=date('d/m/Y')?>">
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 mb-2">
-                                <div class="form-group">
-                                    <label for="">Descuento</label>
-                                    <input id="compra-descuento-input" type="text" class="form-control numeros-vd"
-                                        placeholder="Descuento" data-mask data-inputmask='"mask":"9{1,5}.9{1,2}"'
-                                        value="0.00">
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 mb-2">
-                                <div class="form-group">
-                                    <label for="">Usuario</label>
-                                    <input type="text" readOnly id="compra-usuario-actual" class="form-control"
-                                        placeholder="Usuario">
-                                </div>
-                            </div>
-                        </div>
-
+                        <input type="hidden" id="compra-id">
                         <div class="row">
                             <div class="col-12">
-                                <button class="btn btn-outline-danger mb-3" data-toggle="modal"
+                                <button class="btn btn-outline-danger btn-sm mb-3" data-toggle="modal"
                                     data-target="#modal-proveedor" data-backdrop="static" data-keyboard="false"><i
                                         class="fas fa-search mr-2"></i>Buscar
                                     Proveedor</button>
@@ -71,27 +43,27 @@
                             <div class="col-12 col-md-3">
                                 <div class="form-group">
                                     <label for="">RUC</label>
-                                    <input id="prov-ruc" type="text" readOnly class="form-control" placeholder="RUC">
+                                    <input id="prov-ruc" type="text" readOnly class="form-control form-control-sm" placeholder="RUC">
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
                                 <div class="form-group">
                                     <label for="">Razón Social</label>
-                                    <input id="prov-razon-social" type="text" readOnly class="form-control"
+                                    <input id="prov-razon-social" type="text" readOnly class="form-control form-control-sm"
                                         placeholder="Razón Social">
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
                                 <div class="form-group">
                                     <label for="">Correo</label>
-                                    <input id="prov-correo" type="text" readOnly class="form-control"
+                                    <input id="prov-correo" type="text" readOnly class="form-control form-control-sm"
                                         placeholder="Correo">
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
                                 <div class="form-group">
                                     <label for="">Teléfono</label>
-                                    <input id="prov-telefono" type="text" readOnly class="form-control"
+                                    <input id="prov-telefono" type="text" readOnly class="form-control form-control-sm"
                                         placeholder="Teléfono">
                                 </div>
                             </div>
@@ -99,7 +71,7 @@
 
                         <div class="row">
                             <div class="col-12">
-                                <button class="btn btn-outline-danger mb-3" data-toggle="modal"
+                                <button class="btn btn-outline-danger btn-sm mb-3" data-toggle="modal"
                                     data-target="#modal-producto" data-backdrop="static" data-keyboard="false"><i
                                         class="fas fa-search mr-2"></i>Buscar
                                     Producto</button>
@@ -110,36 +82,36 @@
                                 <input type="hidden" id="prod-id">
                                 <div class="form-group">
                                     <label for="">Nombre</label>
-                                    <input id="prod-nombre" type="text" readOnly class="form-control"
+                                    <input id="prod-nombre" type="text" readOnly class="form-control form-control-sm"
                                         placeholder="Nombre">
                                 </div>
                             </div>
                             <div class="col-12 col-md-2">
                                 <div class="form-group">
                                     <label for="">Stock</label>
-                                    <input id="prod-stock" type="text" readOnly class="form-control"
+                                    <input id="prod-stock" type="text" readOnly class="form-control form-control-sm"
                                         placeholder="Stock">
                                 </div>
                             </div>
                             <div class="col-12 col-md-2">
                                 <div class="form-group">
                                     <label for="">Cantidad</label>
-                                    <input id="pro-cantidad" type="text" class="form-control numeros-vd"
+                                    <input id="pro-cantidad" type="text" class="form-control form-control-sm numeros-vd"
                                         placeholder="Cantidad">
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
                                 <div class="form-group">
                                     <label for="">Precio de Compra</label>
-                                    <input id="prod-precio-compra" type="text" class="form-control"
+                                    <input id="prod-precio-compra" type="text" class="form-control form-control-sm"
                                         placeholder="Precio de Compra" data-mask
                                         data-inputmask='"mask":"9{1,5}.9{1,2}"'>
                                 </div>
                             </div>
                             <div class="col-12 col-md-2">
-                                <button id="item-agregar" class="btn btn-dark" style="margin-top: 30px;"><i
+                                <button id="item-agregar" class="btn btn-dark btn-sm" style="margin-top: 30px;"><i
                                         class="fas fa-plus"></i></button>
-                                <button id="btn-borrar" class="btn btn-danger" style="margin-top: 30px;"><i
+                                <button id="btn-borrar" class="btn btn-danger btn-sm" style="margin-top: 30px;"><i
                                         class="fas fa-minus"></i></button>
                             </div>
                         </div>
@@ -174,7 +146,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-6 col-md-3">
+                            <div class="col-6 col-md-4">
                                 <div class="small-box bg-dark">
                                     <div class="inner">
                                         <h3 id="compra-subtotal">0</h3>
@@ -183,16 +155,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 col-md-3">
+                            <div class="col-6 col-md-4">
                                 <div class="small-box bg-dark">
                                     <div class="inner">
                                         <h3 id="compra-iva">0</h3>
 
-                                        <p><strong>(+) </strong>IVA 12%</p>
+                                        <p><strong>(+) </strong>IVA <span id="ac-valor-iva"></span>%</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 col-md-3">
+                            <!-- <div class="col-6 col-md-3">
                                 <div class="small-box bg-dark">
                                     <div class="inner">
                                         <h3 id="compra-descuento">0</h3>
@@ -200,8 +172,8 @@
                                         <p><strong>(-) </strong>Descuento</p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-6 col-md-3">
+                            </div> -->
+                            <div class="col-6 col-md-4">
                                 <div class="small-box bg-dark">
                                     <div class="inner">
                                         <h3 id="compra-totalg">0</h3>
@@ -213,10 +185,10 @@
                         </div>
 
                         <div class="text-right">
-                            <button class="btn btn-primary" id="guardar-compra"><i
+                            <button class="btn btn-primary btn-sm" id="guardar-compra"><i
                                     class="fas fa-cart-plus mr-2"></i>Guardar
                                 Compra</button>
-                            <button class="btn btn-danger mr-2" id="btn-cancelar"><i
+                            <button class="btn btn-danger btn-sm mr-2" id="btn-cancelar"><i
                                     class="fas fa-times mr-2"></i>Cancelar
                                 Compra</button>
                         </div>
@@ -337,4 +309,4 @@
 </div>
 
 
-<script src="<?=BASE?>views/dist/js/scripts/compras.js?Ver=1.1.1.1"></script>
+<script src="<?=BASE?>views/dist/js/scripts/compras.js?Ver=1.1.1.2"></script>

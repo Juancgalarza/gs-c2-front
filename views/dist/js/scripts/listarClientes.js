@@ -218,7 +218,7 @@ function eliminar_cliente(id){
         text: "No se podra recuperar el registro",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#004a43',
+        confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Sí',
         cancelButtonText: 'Cancelar'

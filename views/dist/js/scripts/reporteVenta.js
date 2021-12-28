@@ -60,9 +60,9 @@ $(function(){
                             $('#body-reporte-ventas').html(tr);
                             //$('#tabla-reporte').removeClass('d-none');
                             $('#totales').html('Totales');
-                            $('#subtotal-general').html(response.totales.subtotal);
-                            $('#iva-general').html(response.totales.iva);
-                            $('#total-general').html(response.totales.total);
+                            $('#subtotal-general').html(response.totales.subtotal.toFixed(2));
+                            $('#iva-general').html(response.totales.iva.toFixed(2));
+                            $('#total-general').html(response.totales.total.toFixed(2));
 
                                  /* Canvas 1 */
                                  $('#box-canvas1').html('');

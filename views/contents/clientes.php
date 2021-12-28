@@ -27,14 +27,14 @@
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Cédula</label>
-                                        <input type="text" name="cedula" class="form-control soloNumeros" id="cedula-cliente"
+                                        <input type="text" name="cedula" class="form-control form-control-sm soloNumeros" id="cedula-cliente"
                                             placeholder="Cédula" maxlength='10' maxlength='10'>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Fecha Registro</label>
-                                        <input type="text" name="fecha_ingreso" class="form-control"
+                                        <input type="text" name="fecha_ingreso" class="form-control form-control-sm"
                                             id="fecha-cliente" placeholder="Fecha Registro" value="<?=date('d/m/Y')?>">
                                     </div>
                                 </div>
@@ -43,14 +43,14 @@
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nombres</label>
-                                        <input type="text" name="nombres" class="form-control letras-vd" id="nombres-cliente"
+                                        <input type="text" name="nombres" class="form-control form-control-sm letras-vd" id="nombres-cliente"
                                             placeholder="Nombres">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Apellidos</label>
-                                        <input type="text" name="apellidos" class="form-control letras-vd" id="apellidos-cliente"
+                                        <input type="text" name="apellidos" class="form-control form-control-sm letras-vd" id="apellidos-cliente"
                                             placeholder="Apellidos">
                                     </div>
                                 </div>
@@ -59,21 +59,21 @@
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Correo</label>
-                                        <input type="email" name="correo" class="form-control" id="correo-cliente"
+                                        <input type="email" name="correo" class="form-control form-control-sm" id="correo-cliente"
                                             placeholder="Correo">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Teléfono</label>
-                                        <input type="text" name="telefono" class="form-control soloNumeros" id="telefono-cliente"
+                                        <input type="text" name="telefono" class="form-control form-control-sm soloNumeros" id="telefono-cliente"
                                             placeholder="Teléfono"  maxlength='10' maxlength='10'> 
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Dirección</label>
-                                <textarea class="form-control" id="direccion-cliente" rows="2"
+                                <textarea class="form-control form-control-sm" id="direccion-cliente" rows="2"
                                     placeholder="Dirección"></textarea>
                             </div>
                         </div>

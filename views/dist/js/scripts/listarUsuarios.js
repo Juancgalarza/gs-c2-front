@@ -219,7 +219,7 @@ function recuperar_rol(){
                      text: 'No hay roles disponibles',
                      icon: 'error',
                      confirmButtonText: 'Ok',
-                     confirmButtonColor: '#004a43' 
+                     confirmButtonColor: '#3085d6' 
                 })
             }
         },
@@ -239,7 +239,7 @@ function eliminar_usuario(id){
         text: "No se podra recuperar el registro",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#004a43',
+        confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Sí',
         cancelButtonText: 'Cancelar'

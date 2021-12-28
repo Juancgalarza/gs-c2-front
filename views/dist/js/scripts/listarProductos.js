@@ -165,7 +165,7 @@ $(function(){
                                  text: response.mensaje,
                                  icon: 'success',
                                  confirmButtonText: 'Ok',
-                                 confirmButtonColor: '#004a43' 
+                                 confirmButtonColor: '#3085d6' 
                             })
 
                             $('#actualizar_producto').modal('hide');
@@ -176,7 +176,7 @@ $(function(){
                                 text: response.mensaje,
                                 icon: 'error',
                                 confirmButtonText: 'Ok',
-                                confirmButtonColor: '#004a43' 
+                                confirmButtonColor: '#3085d6' 
                            })
                         }
                     },
@@ -231,7 +231,7 @@ function eliminar_producto(id){
         text: "No se podrá recuperar el registro",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#004a43',
+        confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Sí',
         cancelButtonText: 'Cancelar'

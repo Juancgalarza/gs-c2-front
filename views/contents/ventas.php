@@ -21,45 +21,18 @@
                             <i class="fas fa-shopping-cart"></i>
                             Nueva Venta
                         </h3>
+                        <div class="card-tools">
+                            <div class="col-12">
+                                <span> <b>Número de Serie:</b> <b id="venta-serie"></b> </span>
+                            </div>
+                        </div>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <div class="row">
-                            <input type="hidden" id="venta-id">
-                            <div class="col-12 col-md-6 mb-2">
-                                <div class="form-group">
-                                    <label for=""># de Serie</label>
-                                    <input id="venta-serie" type="text" readOnly class="form-control"
-                                        placeholder="# de Serie">
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 mb-2">
-                                <div class="form-group">
-                                    <label for="">Fecha de Venta</label>
-                                    <input id="venta-fecha" type="text" readOnly class="form-control"
-                                        placeholder="Fecha de Compra" value="<?=date('d/m/Y')?>">
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 mb-2">
-                                <div class="form-group">
-                                    <label for="">Descuento</label>
-                                    <input id="venta-descuento-input" type="text" class="form-control numeros-vd"
-                                        placeholder="Descuento" data-mask data-inputmask='"mask":"9{1,5}.9{1,2}"'
-                                        value="0.00">
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 mb-2">
-                                <div class="form-group">
-                                    <label for="">Usuario</label>
-                                    <input type="text" readOnly id="venta-usuario-actual" class="form-control"
-                                        placeholder="Usuario">
-                                </div>
-                            </div>
-                        </div>
-
+                        <input type="hidden" id="venta-id">
                         <div class="row">
                             <div class="col-12">
-                                <button class="btn btn-outline-danger mb-3" data-toggle="modal"
+                                <button class="btn btn-outline-danger btn-sm mb-3" data-toggle="modal"
                                     data-target="#modal-clientes" data-backdrop="static" data-keyboard="false"><i
                                         class="fas fa-search mr-2"></i>Buscar
                                     Cliente</button>
@@ -70,28 +43,28 @@
                             <div class="col-12 col-md-3">
                                 <div class="form-group">
                                     <label for="">Nombre</label>
-                                    <input id="venta-cliente-nombre" type="text" readOnly class="form-control"
+                                    <input id="venta-cliente-nombre" type="text" readOnly class="form-control form-control-sm"
                                         placeholder="Nombre">
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
                                 <div class="form-group">
                                     <label for="">Apellido</label>
-                                    <input id="venta-cliente-apellido" type="text" readOnly class="form-control"
+                                    <input id="venta-cliente-apellido" type="text" readOnly class="form-control form-control-sm"
                                         placeholder="Apellido">
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
                                 <div class="form-group">
                                     <label for="">Dirección</label>
-                                    <input id="venta-cliente-direccion" type="text" readOnly class="form-control"
+                                    <input id="venta-cliente-direccion" type="text" readOnly class="form-control form-control-sm"
                                         placeholder="Dirección">
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
                                 <div class="form-group">
                                     <label for="">Teléfono</label>
-                                    <input id="venta-cliente-telefono" type="text" readOnly class="form-control"
+                                    <input id="venta-cliente-telefono" type="text" readOnly class="form-control form-control-sm"
                                         placeholder="Teléfono">
                                 </div>
                             </div>
@@ -99,7 +72,7 @@
 
                         <div class="row">
                             <div class="col-12">
-                                <button class="btn btn-outline-danger mb-3" data-toggle="modal"
+                                <button class="btn btn-outline-danger btn-sm mb-3" data-toggle="modal"
                                     data-target="#modal-producto" data-backdrop="static" data-keyboard="false"><i
                                         class="fas fa-search mr-2"></i>Buscar
                                     Producto</button>
@@ -110,35 +83,35 @@
                                 <input type="hidden" id="prod-id">
                                 <div class="form-group">
                                     <label for="">Nombre</label>
-                                    <input id="prod-nombre" type="text" readOnly class="form-control"
+                                    <input id="prod-nombre" type="text" readOnly class="form-control form-control-sm"
                                         placeholder="Nombre">
                                 </div>
                             </div>
                             <div class="col-12 col-md-2">
                                 <div class="form-group">
                                     <label for="">Stock</label>
-                                    <input id="prod-stock" type="text" readOnly class="form-control"
+                                    <input id="prod-stock" type="text" readOnly class="form-control form-control-sm"
                                         placeholder="Stock">
                                 </div>
                             </div>
                             <div class="col-12 col-md-2">
                                 <div class="form-group">
                                     <label for="">Cantidad</label>
-                                    <input id="pro-cantidad" type="text" class="form-control numeros-vd"
+                                    <input id="pro-cantidad" type="text" class="form-control form-control-sm numeros-vd"
                                         placeholder="Cantidad">
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
                                 <div class="form-group">
                                     <label for="">Precio de Venta</label>
-                                    <input id="prod-precio-venta" type="text" readOnly class="form-control"
+                                    <input id="prod-precio-venta" type="text" readOnly class="form-control form-control-sm"
                                         placeholder="Precio de Venta">
                                 </div>
                             </div>
                             <div class="col-12 col-md-2">
-                                <button id="item-agregar" class="btn btn-dark" style="margin-top: 30px;"><i
+                                <button id="item-agregar" class="btn btn-dark btn-sm" style="margin-top: 30px;"><i
                                         class="fas fa-plus"></i></button>
-                                <button id="btn-borrar" class="btn btn-danger" style="margin-top: 30px;"><i
+                                <button id="btn-borrar" class="btn btn-danger btn-sm" style="margin-top: 30px;"><i
                                         class="fas fa-minus"></i></button>
                             </div>
                         </div>
@@ -173,7 +146,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-6 col-md-3">
+                            <div class="col-6 col-md-4">
                                 <div class="small-box bg-dark">
                                     <div class="inner">
                                         <h3 id="venta-subtotal">0</h3>
@@ -182,7 +155,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 col-md-3">
+                            <div class="col-6 col-md-4">
                                 <div class="small-box bg-dark">
                                     <div class="inner">
                                         <h3 id="venta-iva">0</h3>
@@ -191,7 +164,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 col-md-3">
+                           <!--  <div class="col-6 col-md-3">
                                 <div class="small-box bg-dark">
                                     <div class="inner">
                                         <h3 id="venta-descuento">0</h3>
@@ -199,8 +172,8 @@
                                         <p><strong>(-) </strong>Descuento</p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-6 col-md-3">
+                            </div> -->
+                            <div class="col-6 col-md-4">
                                 <div class="small-box bg-dark">
                                     <div class="inner">
                                         <h3 id="venta-totalg">0</h3>
@@ -212,11 +185,10 @@
                         </div>
 
                         <div class="text-right">
-                            <button class="btn btn-primary" id="guardar-venta"><i
+                            <button class="btn btn-primary btn-sm" id="guardar-venta"><i
                                     class="fas fa-cart-plus mr-2"></i>Guardar
                                 Venta</button>
-                            <button class="btn btn-danger" id="btn-cancelar"><i
-                                    class="fas fa-times mr-2"></i>Cancelar
+                            <button class="btn btn-danger btn-sm" id="btn-cancelar"><i class="fas fa-times mr-2"></i>Cancelar
                                 Venta</button>
                         </div>
                     </div>

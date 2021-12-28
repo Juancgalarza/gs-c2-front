@@ -179,9 +179,8 @@
 
     function guardarVenta(){
         $('#guardar-venta').click(function(){
-            let serie= $('#venta-serie').val();
+            let serie= $('#venta-serie').text();
             let fecha_venta = $('#venta-fecha').val();
-            let descuento_efectivo = $('#venta-descuento-input').val();
             let usuario_id = JSON.parse(localStorage.getItem('sesion')).id;
             let cliente_id = $('#venta-cliente-id').val();
             let subtotal = $('#venta-subtotal').text();
@@ -195,7 +194,6 @@
                 venta: {
                     serie,
                     fecha_venta,
-                    descuento_efectivo,
                     usuario_id,
                     cliente_id,
                     subtotal,
@@ -409,7 +407,7 @@
             dataType : 'json',
             success : function(response) {
                if(response.status){
-                   $('#venta-serie').val(response.codigo);
+                   $('#venta-serie').text(response.codigo);
                }
             },
             error : function(jqXHR, status, error) {
@@ -422,7 +420,7 @@
     }
 
     function guardarCodigo(){
-        let codigo = $('#venta-serie').val();
+        let codigo = $('#venta-serie').text();
 
         let json = {
             codigo: {

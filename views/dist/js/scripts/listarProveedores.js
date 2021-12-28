@@ -140,7 +140,7 @@ $(function(){
                                  text: response.mensaje,
                                  icon: 'success',
                                  confirmButtonText: 'Ok',
-                                 confirmButtonColor: '#004a43' 
+                                 confirmButtonColor: '#3085d6' 
                             })
 
                             $('#actualizar_proveedor').modal('hide');
@@ -151,7 +151,7 @@ $(function(){
                                 text: response.mensaje,
                                 icon: 'error',
                                 confirmButtonText: 'Ok',
-                                confirmButtonColor: '#004a43' 
+                                confirmButtonColor: '#3085d6' 
                            })
                         }
                     },
@@ -207,7 +207,7 @@ function eliminar_proveedor(id){
         text: "No se podra recuperar el registro",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#004a43',
+        confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Sí',
         cancelButtonText: 'Cancelar'

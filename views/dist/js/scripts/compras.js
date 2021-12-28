@@ -4,6 +4,7 @@
     function _init(){
         cargarProveedor();
         getUsuario();
+        getIVA();
         cargarProductos();
         agregarItem();
         guardarCompra();
@@ -20,6 +21,28 @@
         let nombres = user.persona.nombres + ' ' + user.persona.apellidos;
 
         $('#compra-usuario-actual').val(nombres);
+    }
+
+    function getIVA(){
+        $.ajax({
+            // la URL para la petición
+            url : urlServidor + 'configuraciones/listar/' + 1,
+            // especifica si será una petición POST o GET
+            type : 'GET',
+            // el tipo de información que se espera de respuesta
+            dataType : 'json',
+            success : function(response) { 
+                if(response.status){
+                   $('#ac-valor-iva').text(response.config.iva); 
+                }
+            },
+            error : function(jqXHR, status, error) {
+                console.log('Disculpe, existió un problema');
+            },
+            complete : function(jqXHR, status) {
+                // console.log('Petición realizada');
+            }
+        });
     }
 
     function cargarProveedor(){
@@ -200,9 +223,8 @@
     function guardarCompra(){
         $('#guardar-compra').click(function(){
             
-            let serie_documento = $('#compras-serie').val();
+            let serie_documento = $('#compras-serie').text();
             let fecha_compra = $('#compra-fecha').val();
-            let descuento = $('#compra-descuento-input').val();
             let usuario_id = JSON.parse(localStorage.getItem('sesion')).id;
             let proveedor_id = $('#prov-id').val();
             let sub_total = $('#compra-subtotal').text();
@@ -212,13 +234,6 @@
             let productos = $('.fila-productos');
             let items = $('.total_producto');
 
-            if(serie_documento.length == 0){
-                Swal.fire(
-                    'Compra!',
-                    'Ingrese un número de serie para la compra',
-                    'error'
-                  );
-            }else
             if(proveedor_id.length == 0){
                 Swal.fire(
                     'Compra!',
@@ -252,7 +267,6 @@
                     compra: {
                         serie_documento,
                         fecha_compra,
-                        descuento,
                         usuario_id,
                         proveedor_id,
                         sub_total,
@@ -434,7 +448,7 @@
             success : function(response) {
                    /*  console.log(response); */
                if(response.status){
-                   $('#compras-serie').val(response.codigo);
+                   $('#compras-serie').text(response.codigo);
                }
             },
             error : function(jqXHR, status, error) {
@@ -447,7 +461,7 @@
     }
 
     function guardarCodigo(){
-        let codigo = $('#compras-serie').val();
+        let codigo = $('#compras-serie').text();
 
         let json = {
             codigo: {
@@ -518,31 +532,49 @@ function seleccionar_producto(id){
 }
 
 function calcularTotal(){
-    let tr = $('#listProdCompras tr');
-    let descuento_input = parseFloat($('#compra-descuento-input').val());
-
-    let subtotal = 0;
-    let descuento = 0;
-    let total = 0;
-
-    for (let i = 0; i < tr.length; i++) {
-        let hijos = tr[i].children;
-        subtotal += parseFloat(hijos[4].innerText); 
-    }
-
-    let iva = Number(subtotal.toFixed(2)) * 0.12;
-    descuento = descuento_input;
-    
-    if(descuento > 0){
-        total = subtotal - descuento + iva;
-    }else{
-        total = Number(subtotal) + Number(iva.toFixed(2));
-    }
-
-    $('#compra-subtotal').text(subtotal.toFixed(2));
-    $('#compra-iva').text(iva.toFixed(2));
-    $('#compra-descuento').text(descuento.toFixed(2));
-    $('#compra-totalg').text(total.toFixed(2));
+    $.ajax({
+        // la URL para la petición
+        url : urlServidor + 'configuraciones/listar/' + 1,
+        // especifica si será una petición POST o GET
+        type : 'GET',
+        // el tipo de información que se espera de respuesta
+        dataType : 'json',
+        success : function(response) { 
+            if(response.status){
+                let tr = $('#listProdCompras tr');
+                let descuento_input = parseFloat($('#compra-descuento-input').val());
+            
+                let subtotal = 0;
+                let descuento = 0;
+                let total = 0;
+            
+                for (let i = 0; i < tr.length; i++) {
+                    let hijos = tr[i].children;
+                    subtotal += parseFloat(hijos[4].innerText); 
+                }
+            
+                let iva = Number(subtotal.toFixed(2)) * (response.config.iva)/100;
+                descuento = descuento_input;
+                
+                if(descuento > 0){
+                    total = subtotal - descuento + iva;
+                }else{
+                    total = Number(subtotal) + Number(iva.toFixed(2));
+                }
+            
+                $('#compra-subtotal').text(subtotal.toFixed(2));
+                $('#compra-iva').text(iva.toFixed(2));
+                $('#compra-descuento').text(descuento.toFixed(2));
+                $('#compra-totalg').text(total.toFixed(2));
+            }
+        },
+        error : function(jqXHR, status, error) {
+            console.log('Disculpe, existió un problema');
+        },
+        complete : function(jqXHR, status) {
+            // console.log('Petición realizada');
+        }
+    });
 }
 
 function borrar_item(id){

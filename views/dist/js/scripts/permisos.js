@@ -20,7 +20,7 @@ $(function(){
                 if(response.status){
                     let option = '<option value=0>Seleccione un Rol</option>';
                     
-                    response.cargo.forEach(element =>{
+                    response.rol.forEach(element =>{
                         option += `<option value=${element.id}>${element.cargo}</option>`;
                     });
                     $('#select-rol').html(option);

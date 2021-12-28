@@ -1,4 +1,4 @@
-$(function(){
+/* $(function(){ */
     _init();
 
     function _init(){
@@ -7,6 +7,9 @@ $(function(){
         guardarNuevoUsuario();
         changeCedula();
         cancelarFormulario();
+        agregarRolModal();
+        cargarTablaRoles();
+        actualizarRol();
     }
 
     function cargarRoles(){
@@ -21,7 +24,7 @@ $(function(){
                if(response.status){
                    let option = '<option value=0>Seleccione el Rol</option>';
 
-                   response.cargo.forEach(element => {
+                   response.rol.forEach(element => {
                         option += `<option value=${element.id}>${element.cargo}</option>`;                                            
                    });
                    $('#form-select-rol').html(option);
@@ -408,7 +411,7 @@ $(function(){
                         text: response.mensaje,
                         icon: 'success',
                         confirmButtonText: 'Ok',
-                        confirmButtonColor: '#004a43'
+                        confirmButtonColor: '#3085d6'
                     });
                     $('#form-datos-usuario')[0].reset();
                 }else{
@@ -417,7 +420,7 @@ $(function(){
                         text: response.mensaje,
                         icon: 'error',
                         confirmButtonText: 'Ok',
-                        confirmButtonColor: '#004a43'
+                        confirmButtonColor: '#3085d6'
                     });
                 }
              },
@@ -474,4 +477,246 @@ $(function(){
             window.location.href = urlCliente + 'inicio/administrador';
         });
     }
-});
+
+    function agregarRolModal(){
+        $('#agregar-rol-modal').click(function(){
+            $('#agregar-rol').modal('show');
+            $('#nuevo-rol-form').submit((e) => {
+                e.preventDefault();
+    
+                let cargo = $('#nuevo-rol').val();
+        
+                if(cargo.length == 0){
+                    Swal.fire({
+                        title: 'Usuario',
+                        text: "Ingrese un rol",
+                        icon: 'success',
+                        confirmButtonText: 'Ok',
+                        confirmButtonColor: '#004a43'
+                    });
+                }else{
+                  let data = {
+                      rol: {
+                          cargo: cargo, 
+                      },
+                  };
+    
+                  guardandoRol(data);
+                
+                }
+            });
+        });
+    }
+
+    function guardandoRol(json){
+        $.ajax({
+            // la URL para la petición
+            url : urlServidor + 'rol/save',
+            data : "data=" + JSON.stringify(json),
+            // especifica si será una petición POST o GET
+            type : 'POST',
+            // el tipo de información que se espera de respuesta
+            dataType : 'json',
+            success : function(response) {
+                if(response.status){
+                    Swal.fire({
+                        title: 'Rol',
+                        text: response.mensaje,
+                        icon: 'success',
+                        confirmButtonText: 'Ok',
+                        confirmButtonColor: '#3085d6'
+                    });
+                    $('#nuevo-rol-form')[0].reset();
+                    cargarTablaRoles();
+                }else{
+                    Swal.fire({
+                        title: 'Rol',
+                        text: response.mensaje,
+                        icon: 'error',
+                        confirmButtonText: 'Ok',
+                        confirmButtonColor: '#3085d6'
+                    });
+                }
+            },
+            error : function(jqXHR, status, error) {
+                console.log('Disculpe, existió un problema');
+            },
+            complete : function(jqXHR, status) {
+                // console.log('Petición realizada');
+            }
+        });
+    }
+
+    function cargarTablaRoles(){
+        $.ajax({
+            url : urlServidor + 'rol/listar',
+            type : 'GET',
+            dataType : 'json',
+            success : function(response) {
+                if(response.status){
+                    let tr = "";    let i = 1;
+
+                    response.rol.forEach(element => {
+                        tr += `<tr>
+                        <td>${i}</td>
+                        <td>${element.cargo}</td>
+                        <td>
+                          <div class="text-center"><button class="btn btn-primary btn-sm" onclick="editar_rol(${element.id})">
+                              <i class="fa fa-edit"></i>
+                            </button>
+                          </div>
+                        </td>
+
+                        <td>
+                          <div class="text-center"><button class="btn btn-danger btn-sm" onclick="eliminar_rol(${element.id})">
+                              <i class="fa fa-trash"></i>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>`;
+                        i++;
+                    });
+
+                    $('#table-roles').html(tr);
+                }
+            },
+            error : function(xhr, status) {
+                console.log('Disculpe, existió un problema');
+            },
+            complete : function(xhr, status) {
+                // console.log('Petición realizada');
+            }
+        });
+    }
+
+    function actualizarRol(){
+        $('#btn-update').click(function(){
+            let id = $('#upd-rol-id').val();
+            let cargo = $('#upd-rol').val();
+            
+            if(cargo.length == 0){
+                Swal.fire(
+                    'Rol',
+                    'Complete el campo cargo',
+                    'warning'
+                  )
+            }else
+            {
+                let json = {
+                    rol: {
+                        id: id,
+                        cargo: cargo
+                    }
+                };
+
+                $.ajax({
+                    // la URL para la petición
+                    url : urlServidor + 'rol/editar',
+                    type : 'POST',
+                    data: {data: JSON.stringify(json)},
+                    dataType : 'json',
+                    success : function(response){
+                        console.log(response);
+                        if(response.status){
+                            Swal.fire({
+                                 title: 'Rol !',
+                                 text: response.mensaje,
+                                 icon: 'success',
+                                 confirmButtonText: 'Ok',
+                                 confirmButtonColor: '#004a43' 
+                            })
+                            $('#actualizar-rol').modal('hide');
+                            cargarTablaRoles();
+                        }else{
+                            Swal.fire({
+                                title: 'Rol !',
+                                text: response.mensaje,
+                                icon: 'error',
+                                confirmButtonText: 'Ok',
+                                confirmButtonColor: '#004a43' 
+                           })
+                        }
+                    },
+                    error : function(jqXHR, status, error) {
+                     console.log('Disculpe, existió un problema');
+                 },
+                 complete : function(jqXHR, status) {
+                     // console.log('Petición realizada');
+                 } 
+                 });
+            }
+        })
+    }
+/* }); */
+
+function editar_rol(id){
+    $('#actualizar-rol').modal('show');
+    cargar_rol(id);
+}
+
+function cargar_rol(id){
+    $.ajax({
+        // la URL para la petición
+        url : urlServidor + 'rol/listar/' + id,
+        // especifica si será una petición POST o GET
+        type : 'GET',
+        // el tipo de información que se espera de respuesta
+        dataType : 'json',
+        success : function(response) { 
+            if(response.status){
+                $('#upd-rol-id').val(response.rol.id);
+                $('#upd-rol').val(response.rol.cargo);
+            }
+        },
+        error : function(jqXHR, status, error) {
+            console.log('Disculpe, existió un problema');
+        },
+        complete : function(jqXHR, status) {
+            // console.log('Petición realizada');
+        }
+    });
+}
+
+function eliminar_rol(id){
+    Swal.fire({
+        title: '¿Estás seguro de eliminar el rol?',
+        text: "No se podra recuperar el registro",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            let json = {rol: { id }};
+
+            $.ajax({
+                // la URL para la petición
+                url : urlServidor + 'rol/eliminar/' + id,
+                // especifica si será una petición POST o GET
+                type : 'POST',
+                // el tipo de información que se espera de respuesta
+                data: {data: JSON.stringify(json)},
+                dataType : 'json',
+                success : function(response) {
+                    if(response.status){
+                        Swal.fire({
+                            title:'Rol',
+                            icon: 'success',
+                            text: response.mensaje,
+                            confirmButtonColor: '#004a43',
+                        });
+                        cargarTablaRoles(); 
+                    }
+                },
+                error : function(jqXHR, status, error) {
+                    console.log('Disculpe, existió un problema');
+                },
+                complete : function(jqXHR, status) {
+                    // console.log('Petición realizada');
+                }
+            });
+        }
+    })
+}
