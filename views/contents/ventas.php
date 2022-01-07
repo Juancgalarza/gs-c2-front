@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Ventas</h1>
+                <h1 class="m-0"> <b>Ventas</b> </h1>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <div class="card card-danger" style="border: 1px solid #000;">
+                <div class="card card-danger shadow">
                     <div class="card-header">
                         <h3 class="card-title">
                             <i class="fas fa-shopping-cart"></i>
@@ -160,7 +160,7 @@
                                     <div class="inner">
                                         <h3 id="venta-iva">0</h3>
 
-                                        <p><strong>(+) </strong>IVA 12%</p>
+                                        <p><strong>(+) </strong>IVA <span id="ac-valor-iva"></span>%</p>
                                     </div>
                                 </div>
                             </div>
@@ -303,7 +303,8 @@
                                         <th>Código</th>
                                         <th>Nombre</th>
                                         <th>Stock</th>
-                                        <th>P. Venta</th>
+                                        <th style="display: none">P. Compra</th>
+                                        <th style="display: none">P. Venta</th>
                                         <th>Seleccionar</th>
                                     </tr>
                                 </thead>

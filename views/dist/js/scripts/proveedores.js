@@ -177,7 +177,7 @@ $(function(){
     }
 
     function validarCedula(cedula){
-        if(cedula.length == 13 && cedula + '001'){
+        if(cedula.length == 10){
         
             //Obtenemos el digito de la region que sonlos dos primeros digitos
             var digito_region = cedula.substring(0,2);
@@ -249,9 +249,12 @@ $(function(){
 
     function changeRUC(){
         $('#ruc-proveedor').blur(function(){
-            let cedula = $('#ruc-proveedor').val();
+            let ruc = $('#ruc-proveedor').val();
+
+            cedula = ruc.substring(0,10);
+            ext = ruc.substring(10,13);
         
-            if(validarCedula(cedula)){
+            if(validarRUC(cedula,ext)){
                 Swal.fire({
                     title: 'Listo!',
                     text: 'El RUC es válido',
@@ -265,8 +268,27 @@ $(function(){
                     icon: 'error',
                     confirmButtonText: 'Ok'
                   });
-            }      
+            }     
         }); 
+    }
+
+    function validarRUC(cedula,ext){
+        ced = validarCedula(cedula);
+        band = false;
+        //validar 001
+        if(ext === '001'){
+            band = true;
+        }else{
+            band = false;
+        }
+
+        //validar ruc
+        if(ced && band){
+            return true
+        }else{
+            return false
+        }
+
     }
 });
 

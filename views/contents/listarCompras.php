@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Listar Compras</h1>
+                <h1 class="m-0"> <b>Listar Compras</b> </h1>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <div class="card card-outline card-danger">
+                <div class="card card-outline card-danger shadow">
                     <div class="card-header">
                         <h3 class="card-title">Compras Realizadas</h3>
                     </div>
@@ -30,6 +30,7 @@
                                         <th>Proveedor</th>
                                         <th>Total Compra</th>
                                         <th>Fecha Compra</th>
+                                        <th>Estado Compra</th>
                                         <th>Ver Detalle</th>
                                     </tr>
                                 </thead>
@@ -167,5 +168,5 @@
 <script src="<?=BASE?>views/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="<?=BASE?>views/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
-<script src="<?=BASE?>views/dist/js/scripts/listarCompras.js"></script>
+<script src="<?=BASE?>views/dist/js/scripts/listarCompras.js?ver=1.1.1"></script>
 <script src="<?=BASE?>views/plugins/html2pdf/html2pdf.bundle.js"></script>

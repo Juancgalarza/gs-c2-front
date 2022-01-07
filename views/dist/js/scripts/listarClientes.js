@@ -12,6 +12,7 @@ $(function(){
     function iniciar_tabla(){
         tabla=$('#tabla-cliente').dataTable({
             "lengthMenu": [ 5, 10, 25, 75, 100],//mostramos el menú de registros a revisar
+            "responsive": true, "lengthChange": false, "autoWidth": false,
             "aProcessing": true,//Activamos el procesamiento del datatables
             "aServerSide": true,//Paginación y filtrado realizados por el servidor
             dom: '<Bl<f>rtip>',//Definimos los elementos del control de tabla
@@ -259,6 +260,7 @@ function eliminar_cliente(id){
 function iniciar_tabla2(){
     tabla=$('#tabla-cliente').dataTable({
         "lengthMenu": [ 5, 10, 25, 75, 100],//mostramos el menú de registros a revisar
+        "responsive": true, "lengthChange": false, "autoWidth": false,
         "aProcessing": true,//Activamos el procesamiento del datatables
         "aServerSide": true,//Paginación y filtrado realizados por el servidor
         dom: '<Bl<f>rtip>',//Definimos los elementos del control de tabla

@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Configuraciones</h1>
+                <h1 class="m-0"> <b>Configuraciones</b> </h1>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <div class="row d-flex justify-content-center">
             <div class="col-12 col-md-9">
-                <div class="card card-danger" style="border: 1px solid #000;">
+                <div class="card card-danger shadow">
                     <div class="card-header">
                         <h3 class="card-title">Configuraciones Generales del Sistema</h3>
                     </div>

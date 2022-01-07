@@ -21,7 +21,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Listar Usuarios</h1>
+                <h1 class="m-0"> <b>Listar Usuarios</b> </h1>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -33,7 +33,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <div class="card card-outline card-danger">
+                <div class="card card-outline card-danger shadow">
                     <!-- /.card-header -->
                     <div class="card-body">
                         <div class="div" style="overflow: auto;">

@@ -193,6 +193,7 @@ $(function(){
                 dataType : 'json',
                 success : function(response) {
                     if(response){
+                        $('#anio-compra').text(response.compra.anio);
                         new Chart(document.getElementById("compra-box"), {
                             type: 'bar',
                             data: {
@@ -237,6 +238,7 @@ $(function(){
                 dataType : 'json',
                 success : function(response) {
                     if(response){
+                        $('#anio-venta').text(response.venta.anio);
                         new Chart(document.getElementById("venta-box"), {
                             type: 'bar',
                             data: {
@@ -244,7 +246,7 @@ $(function(){
                               datasets: [
                                 {
                                   label: "Total",
-                                  backgroundColor: ["#fff706", "#fe0612","#282f34","#009000","#fff706", "#fe0612","#282f34","#009000","#fff706","#fe0612","#282f34","#009000"],
+                                  backgroundColor: ["#fe0612","#fff706","#282f34","#009000","#fff706", "#fe0612","#282f34","#009000","#fff706","#fe0612","#282f34","#009000"],
                                   data: response.venta.data
                                 }
                               ]

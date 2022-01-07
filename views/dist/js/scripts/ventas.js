@@ -12,6 +12,7 @@
         buscarCliente();
         generarCodigo();
         cancelarFormulario();
+        getIVA();
     }
 
     function getUsuario(){
@@ -40,7 +41,8 @@
                         <td>${element.codigo}</td>
                         <td>${element.nombre}</td>
                         <td>${element.stock}</td>
-                        <td>${element.precio_venta}</td>
+                        <td style="display: none">${element.precio_compra}</td>
+                        <td style="display: none">${element.precio_venta}</td>
                         <td>
                           <div class="div text-center">
                             <button class="btn btn-danger btn-sm" data-dismiss="modal" onclick="seleccionar_producto(${element.id})">
@@ -117,6 +119,7 @@
             let stock = parseInt($('#prod-stock').val());
 
             let total_producto = Number((parseInt(cantidad) * parseFloat(precio_venta)).toFixed(2));
+            let totalp = total_producto.toFixed(2);
 
            if(id.length == 0){
             Swal.fire(
@@ -146,10 +149,10 @@
                                <td>${nombre}</td>
                                <td>${cantidad}</td>
                                <td>${precio_venta}</td>
-                               <td class="total_producto">${total_producto}</td>
+                               <td class="total_producto">${totalp}</td>
                                <th>
                                     <div>
-                                        <button class="btn btn-outline-danger" onclick="borrar_item(${id},${total_producto})">
+                                        <button class="btn btn-outline-danger" onclick="borrar_item(${id},${totalp})">
                                             <i class="fas fa-minus"></i>
                                         </button>
                                     </div>
@@ -240,6 +243,28 @@
         }
     }
 
+    function getIVA(){
+        $.ajax({
+            // la URL para la petición
+            url : urlServidor + 'configuraciones/listar/' + 1,
+            // especifica si será una petición POST o GET
+            type : 'GET',
+            // el tipo de información que se espera de respuesta
+            dataType : 'json',
+            success : function(response) { 
+                if(response.status){
+                   $('#ac-valor-iva').text(response.config.iva); 
+                }
+            },
+            error : function(jqXHR, status, error) {
+                console.log('Disculpe, existió un problema');
+            },
+            complete : function(jqXHR, status) {
+                // console.log('Petición realizada');
+            }
+        });
+    }
+
     function reset(){
         $('#venta-id').val('');
         $('#venta-descuento-input').val('0.00');
@@ -321,7 +346,8 @@
                             <td>${element.codigo}</td>
                             <td>${element.nombre}</td>
                             <td>${element.stock}</td>
-                            <td>${element.precio_venta}</td>
+                            <td style="display: none">${element.precio_compra}</td>
+                            <td style="display: none">${element.precio_venta}</td>
                             <td>
                             <div class="div text-center">
                                 <button class="btn btn-danger btn-sm" data-dismiss="modal" onclick="seleccionar_producto(${element.id})">
@@ -474,29 +500,78 @@ function seleccionar_cliente(id){
 }
 
 function seleccionar_producto(id){
-    let fila = '#item-prod-'+id;
-    let f = $(fila)[0].children;
+    $.ajax({
+        // la URL para la petición
+        url : urlServidor + 'configuraciones/listar/' + 1,
+        // especifica si será una petición POST o GET
+        type : 'GET',
+        // el tipo de información que se espera de respuesta
+        dataType : 'json',
+        success : function(response) {     
+            if(response.status){
+                let fila = '#item-prod-'+id;
+                let f = $(fila)[0].children;
 
-    let codigo = f[2].innerText;
-    let nombre = f[3].innerText;
-    let stock = f[4].innerText;
-    let precio_venta = f[5].innerText;
+                let codigo = f[2].innerText;
+                let nombre = f[3].innerText;
+                let stock = f[4].innerText;
+                let precio_compra = f[5].innerText;
+                //let precio_venta = f[5].innerText;
+                
+                if(parseInt(stock) > 0){
+                    $('#prod-id').val(id);
+                    $('#prod-codigo').val(codigo);
+                    $('#prod-nombre').val(nombre);
+                    $('#prod-stock').val(stock);
+                    $('#btn-borrar').show();
+                    let margenf = (precio_compra * (response.config.porcentaje_ganancia)/100);
+                    let margen = margenf.toFixed(2);
+                    let precio_venta =  Number(precio_compra) + Number(margen);
+                    $('#prod-precio-venta').val(precio_venta.toFixed(2))
+                    $('#modal-producto-venta').modal('hide');
+                    let producto_id = id;
+                    let json = {
+                        datos: {
+                            producto_id,
+                            precio_venta,
+                            margen
+                        },
+                    };
+                    $.ajax({
+                        // la URL para la petición
+                        url : urlServidor + 'venta/actualizarPrecioVentaMargen',
+                        // especifica si será una petición POST o GET
+                        type : 'POST',
+                        data : "data=" + JSON.stringify(json),
+                        // el tipo de información que se espera de respuesta
+                        dataType : 'json',
+                        success : function(response) {
+                            console.log(response);
+                        },
+                        error : function(jqXHR, status, error) {
+                            console.log('Disculpe, existió un problema');
+                        },
+                        complete : function(jqXHR, status) {
+                            // console.log('Petición realizada');
+                        }
+                    });
+                }else{
+                    Swal.fire(
+                        'Venta',
+                        'No hay productos en Stock',
+                        'warning'
+                    )
+                }       
+            }
+        },
+        error : function(jqXHR, status, error) {
+            console.log('Disculpe, existió un problema');
+        },
+        complete : function(jqXHR, status) {
+            // console.log('Petición realizada');
+        }
+    });
     
-    if(parseInt(stock) > 0){
-        $('#prod-id').val(id);
-        $('#prod-codigo').val(codigo);
-        $('#prod-nombre').val(nombre);
-        $('#prod-stock').val(stock);
-        $('#prod-precio-venta').val(precio_venta)
-        $('#btn-borrar').show();
-        $('#modal-producto-venta').modal('hide');
-    }else{
-        Swal.fire(
-            'Venta',
-            'No hay productos en Stock',
-            'warning'
-          )
-    }
 }
 
 function borrar_item(id,total_producto){
@@ -511,29 +586,47 @@ function borrar_item(id,total_producto){
 }
 
 function calcularTotal(){
-    let tr = $('#listProdCompras tr');
-    let descuento_input = parseFloat($('#venta-descuento-input').val());
-
-    let subtotal = 0;
-    let descuento = 0;
-    let total = 0;
-
-    for (let i = 0; i < tr.length; i++) {
-        let hijos = tr[i].children;
-        subtotal += parseFloat(hijos[4].innerText); 
-    }
-
-    let iva = Number(subtotal.toFixed(2)) * 0.12;
-    descuento = descuento_input;
-    
-    if(descuento > 0){
-        total = subtotal - descuento + iva;
-    }else{
-        total = Number(subtotal) + Number(iva.toFixed(2));
-    }
-
-    $('#venta-subtotal').text(subtotal.toFixed(2));
-    $('#venta-iva').text(iva.toFixed(2));
-    $('#venta-descuento').text(descuento);
-    $('#venta-totalg').text(total.toFixed(2));
+    $.ajax({
+        // la URL para la petición
+        url : urlServidor + 'configuraciones/listar/' + 1,
+        // especifica si será una petición POST o GET
+        type : 'GET',
+        // el tipo de información que se espera de respuesta
+        dataType : 'json',
+        success : function(response) { 
+            if(response.status){
+                let tr = $('#listProdCompras tr');
+                let descuento_input = parseFloat($('#venta-descuento-input').val());
+            
+                let subtotal = 0;
+                let descuento = 0;
+                let total = 0;
+            
+                for (let i = 0; i < tr.length; i++) {
+                    let hijos = tr[i].children;
+                    subtotal += parseFloat(hijos[4].innerText); 
+                }
+            
+                let iva = Number(subtotal.toFixed(2)) * (response.config.iva)/100;
+                descuento = descuento_input;
+                
+                if(descuento > 0){
+                    total = subtotal - descuento + iva;
+                }else{
+                    total = Number(subtotal) + Number(iva.toFixed(2));
+                }
+            
+                $('#venta-subtotal').text(subtotal.toFixed(2));
+                $('#venta-iva').text(iva.toFixed(2));
+                $('#venta-descuento').text(descuento);
+                $('#venta-totalg').text(total.toFixed(2));
+            }
+        },
+        error : function(jqXHR, status, error) {
+            console.log('Disculpe, existió un problema');
+        },
+        complete : function(jqXHR, status) {
+            // console.log('Petición realizada');
+        }
+    });    
 }

@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Permisos</h1>
+                <h1 class="m-0"> <b>Permisos</b> </h1>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -23,7 +23,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <div class="card">
+                <div class="card card-danger card-outline shadow">
                     <div class="card-header">
                         <h3 class="card-title">Lista de Permisos</h3>
                     </div>

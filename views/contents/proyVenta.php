@@ -3,13 +3,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Proyecciones de Ventas</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Proyecciones</a></li>
-                    <li class="breadcrumb-item active">Proyecciones de Ventas</li>
-                </ol>
+                <h1 class="m-0"> <b>Proyecciones de Ventas</b> </h1>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -52,9 +46,9 @@
         </div>
         <div class="row d-none" id="tabla-reporte">
             <div class="col-12 col-md-6">
-                <div class="card">
+                <div class="card card-danger card-outline shadow">
                     <div class="card-header">
-                        <h5 class="text-info">Tabla de Datos</h5>
+                        <h5 class="text-danger">Tabla de Datos</h5>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">

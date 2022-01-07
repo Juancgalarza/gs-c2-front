@@ -58,7 +58,7 @@ $(function(){
                                 i++;
                             });
                             $('#body-reporte-ventas').html(tr);
-                            //$('#tabla-reporte').removeClass('d-none');
+                            $('#tabla-reporte').removeClass('d-none');
                             $('#totales').html('Totales');
                             $('#subtotal-general').html(response.totales.subtotal.toFixed(2));
                             $('#iva-general').html(response.totales.iva.toFixed(2));
@@ -73,10 +73,24 @@ $(function(){
                                      labels  : response.barra.labels,
                                      datasets: [
                                        {
-                                         
+                                        label               : 'Iva',
+                                        backgroundColor     : '#f56954',
+                                        pointRadius          : false,
+                                        pointColor          : '#3b8bba',
+                                        pointStrokeColor    : 'rgba(60,141,188,1)',
+                                        pointHighlightFill  : '#fff',
+                                        pointHighlightStroke: 'rgba(60,141,188,1)',
+                                        data                : response.barra.dataIva
                                        },
                                        {
-                                         
+                                        label               : 'Subtotal',
+                                        backgroundColor     : '#00a65a',
+                                        pointRadius         : false,
+                                        pointColor          : 'rgba(210, 214, 222, 1)',
+                                        pointStrokeColor    : '#c1c7d1',
+                                        pointHighlightFill  : '#fff',
+                                        pointHighlightStroke: 'rgba(220,220,220,1)',
+                                        data                : response.barra.dataSubtotal
                                        },
                                        {
                                          label               : 'Total',

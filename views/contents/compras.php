@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Compras</h1>
+                <h1 class="m-0"> <b>Compras</b> </h1>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <div class="card card-danger" style="border: 1px solid #000;">
+                <div class="card card-danger shadow">
                     <div class="card-header">
                         <h3 class="card-title">
                             <i class="fas fa-shopping-cart"></i>
@@ -104,8 +104,7 @@
                                 <div class="form-group">
                                     <label for="">Precio de Compra</label>
                                     <input id="prod-precio-compra" type="text" class="form-control form-control-sm"
-                                        placeholder="Precio de Compra" data-mask
-                                        data-inputmask='"mask":"9{1,5}.9{1,2}"'>
+                                        placeholder="Precio de Compra" readOnly>
                                 </div>
                             </div>
                             <div class="col-12 col-md-2">
@@ -289,6 +288,7 @@
                                         <th>Código</th>
                                         <th>Nombre</th>
                                         <th>Stock</th>
+                                        <th>Precio Compra</th>
                                         <th>Seleccionar</th>
                                     </tr>
                                 </thead>
@@ -309,4 +309,4 @@
 </div>
 
 
-<script src="<?=BASE?>views/dist/js/scripts/compras.js?Ver=1.1.1.2"></script>
+<script src="<?=BASE?>views/dist/js/scripts/compras.js?Ver=1.1.1.3"></script>

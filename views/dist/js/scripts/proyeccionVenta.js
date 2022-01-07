@@ -61,7 +61,7 @@ $(function(){
                                     label: 'Venta',
                                     data: response.burbuja.data,
                                     //borderColor: Utils.CHART_COLORS.red,
-                                    backgroundColor: ["#fff706", "#fe0612","#282f34","#009000","#fff706", "#fe0612","#282f34","#009000"],
+                                    backgroundColor: ["#fff706", "#fe0612","#282f34","#009000","#fff706", "#fe0612","#282f34","#009000","#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#fff706", "#fe0612","#282f34","#009000","#fff706", "#fe0612","#282f34","#009000","#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
                                   }
                                 ]
                               };

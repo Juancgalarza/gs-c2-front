@@ -79,7 +79,7 @@ $(function(){
                         text: response.mensaje,
                         icon: 'success',
                         confirmButtonText: 'Ok',
-                        confirmButtonColor: '#004a43' 
+                        confirmButtonColor: '#3085d6' 
                     });
                     $('#formulario-configuraciones')[0].reset();
                     cargarDataConfig();

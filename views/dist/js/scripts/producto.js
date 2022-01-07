@@ -1,5 +1,6 @@
 $(function(){
-
+    const WIDTH = 600;
+    const HEIGHT = 300;
     _init();
 
     function _init(){
@@ -7,6 +8,8 @@ $(function(){
         validar_form();
         guardar();
         cancelarFormulario();
+        generarCodigo();
+        changeImagen();
     }
 
     function cargarCategorias(){
@@ -94,18 +97,15 @@ $(function(){
     }
 
     function validando(json){
-        if(json.producto.codigo.length == 0){
-            Swal.fire(
-                'Producto',
-                'Ingrese un código',
-                'error'
-              );
-            return false;
-        }else
         if(json.producto.categoria_id == '0'){     
               return false;
         }else
         if(json.producto.nombre.length == 0){
+            Swal.fire(
+                'Producto',
+                'Ingrese un nombre al producto',
+                'error'
+              );
             return false;
         }else
         if(json.producto.fecha.length == 0){
@@ -121,7 +121,7 @@ $(function(){
             e.preventDefault();
 
             let id_categoria = $('#select-categoria option:selected').val();
-            let codigo = $('#codigo-producto').val();
+            let codigo = $('#codigo-producto').text();
             let nombre = $('#nombre-producto').val();
             let descripcion = $('#descripcion-producto').val();
             //let precio_venta = $('#precio-venta-producto').val();
@@ -167,8 +167,8 @@ $(function(){
                         response.mensaje,
                         'success'
                     );
-
-                    $('#formulario-producto')[0].reset();   
+                    $('#formulario-producto')[0].reset();
+                    guardarCodigo();   
 
                 }else{
                     Swal.fire({
@@ -221,6 +221,93 @@ $(function(){
     function cancelarFormulario(){
         $('#btn-cancelar').click(function(){
             window.location.href = urlCliente + 'inicio/administrador';
+        });
+    }
+
+    function generarCodigo(){
+        $.ajax({
+            // la URL para la petición
+            url : urlServidor + 'producto/generar_codigo/producto',
+
+            // especifica si será una petición POST o GET
+            type : 'GET',
+            // el tipo de información que se espera de respuesta
+            dataType : 'json',
+            success : function(response) {
+                   /*  console.log(response); */
+               if(response.status){
+                   $('#codigo-producto').text(response.codigo);
+               }
+            },
+            error : function(jqXHR, status, error) {
+                console.log('Disculpe, existió un problema');
+            },
+            complete : function(jqXHR, status) {
+                // console.log('Petición realizada');
+            }
+        }); 
+    }
+
+    function guardarCodigo(){
+        let codigo = $('#codigo-producto').text();
+        console.log(codigo);
+
+        let json = {
+            codigo: {
+                codigo: codigo,
+                tipo: 'producto'
+            }
+        }
+
+        $.ajax({
+            // la URL para la petición
+            url : urlServidor + 'producto/aumentarCodigo',
+            // especifica si será una petición POST o GET
+            type : 'POST',
+            data : "data=" + JSON.stringify(json),
+            // el tipo de información que se espera de respuesta
+            dataType : 'json',
+            success : function(response) {
+                console.log(response); 
+                generarCodigo();
+            },
+            error : function(jqXHR, status, error) {
+                console.log('Disculpe, existió un problema');
+            },
+            complete : function(jqXHR, status) {
+                // console.log('Petición realizada');
+            }
+        });
+    }
+
+    function changeImagen() {
+        var _URL = window.URL || window.webkitURL;
+        $('#imagen-producto').change((event) => {
+            var file, img;
+            if ((file = event.target.files[0])) {
+                img = new Image();
+                img.onload = function () {
+                    if(this.width <= WIDTH && this.height <= HEIGHT){
+                        Swal.fire({
+                            title: 'Listo!',
+                            text: 'La imagen cumple con las dimensiones',
+                            icon: 'success',
+                            confirmButtonText: 'Ok'
+                        });
+                        return true;
+                    }else{
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'La imgen no cumple con las dimensiones 600x300',
+                            icon: 'error',
+                            confirmButtonText: 'Ok'
+                        });
+                        return false;
+                    }
+                };
+            
+                img.src = _URL.createObjectURL(file);
+            }
         });
     }
 

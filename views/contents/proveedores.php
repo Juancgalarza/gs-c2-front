@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Proveedores</h1>
+                <h1 class="m-0"> <b>Proveedores</b> </h1>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <div class="card card-danger" style="border: 1px solid #000;">
+                <div class="card card-danger shadow">
                     <div class="card-header">
                         <h3 class="card-title">Nuevo Proveedor</h3>
                     </div>

@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Reporte de Ventas Mensuales</h1>
+                <h1 class="m-0"> <b>Reporte de Ventas Mensuales</b> </h1>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <div class="card card-danger" style="border: 1px solid #000;">
+                <div class="card card-danger shadow">
                     <div class="card-header">
                         <h3 class="card-title">Ventas Mensuales</h3>
                     </div>
@@ -42,7 +42,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div id="tabla-reporte" class="row bg-white">
+                        <div id="tabla-reporte" class="row d-none">
                             <div class="col-12 mt-3">
                                 <div class="row">
                                     <div class="col-6 col-md-8 col-lg-9 " style="padding-left: 125px">

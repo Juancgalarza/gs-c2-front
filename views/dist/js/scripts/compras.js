@@ -5,7 +5,7 @@
         cargarProveedor();
         getUsuario();
         getIVA();
-        cargarProductos();
+        //cargarProductos();
         agregarItem();
         guardarCompra();
         generarDescuento();
@@ -135,7 +135,8 @@
             let cantidad = $('#pro-cantidad').val();
             let precio_compra = $('#prod-precio-compra').val();
 
-            let total_producto = Number((parseInt(cantidad) * parseFloat(precio_compra)).toFixed(2));
+            let total_producto = Number((parseInt(cantidad) * parseFloat(precio_compra)));
+            let totalp = total_producto.toFixed(2);
 
            if(id.length == 0){
             Swal.fire(
@@ -163,7 +164,7 @@
                    <td>${nombre}</td>
                    <td>${cantidad}</td>
                    <td>${precio_compra}</td>
-                   <td class="total_producto">${total_producto}</td>
+                   <td class="total_producto">${totalp}</td>
                    <th>
                         <div>
                             <button class="btn btn-outline-danger" onclick="borrar_item(${id})">
@@ -502,7 +503,6 @@
 function seleccionar_prov(id){
     let fila = '#item-prov-'+id;
     let f = $(fila)[0].children;
-    console.log(f);
 
     let ruc = f[2].innerText;
     let correo = f[4].innerText;
@@ -514,21 +514,142 @@ function seleccionar_prov(id){
     $('#prov-razon-social').val(razon_social);
     $('#prov-correo').val(correo);
     $('#prov-telefono').val(telefono);
+
+    $.ajax({
+        // la URL para la petición
+        url : urlServidor + 'catalogo/listar/' + id,
+        // especifica si será una petición POST o GET
+        type : 'GET',
+        // el tipo de información que se espera de respuesta
+        dataType : 'json',
+        success : function(response) {
+            if(response.status){
+                let tr = '';
+                let i = 1;
+                response.catalogo.forEach(element => {
+                    tr += `<tr id="item-prod-${element.producto.id}">
+                    <td>${i}</td>
+                    <td style="display: none">${element.producto.id}</td>
+                    <td>${element.producto.codigo}</td>
+                    <td>${element.producto.nombre}</td>
+                    <td>${element.producto.stock}</td>
+                    <td>${element.producto.precio_compra}</td>
+                    <td>
+                      <div class="div text-center">
+                        <button class="btn btn-danger btn-sm" data-dismiss="modal" onclick="seleccionar_producto(${element.producto.id})">
+                          <i class="fas fa-check"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>`;
+                  i++;
+                });
+                $('#producto-body').html(tr);
+            } 
+        },
+        error : function(jqXHR, status, error) {
+            console.log('Disculpe, existió un problema');
+        },
+        complete : function(jqXHR, status) {
+            // console.log('Petición realizada');
+        }
+    }); 
 }
 
-function seleccionar_producto(id){
+function seleccionar_producto(id){   
     let fila = '#item-prod-'+id;
     let f = $(fila)[0].children;
 
     let codigo = f[2].innerText;
     let nombre = f[3].innerText;
     let stock = f[4].innerText;
+    let precio_compra = f[5].innerText;
     
     $('#prod-id').val(id);
     $('#prod-codigo').val(codigo);
     $('#prod-nombre').val(nombre);
     $('#prod-stock').val(stock);
-    $('#btn-borrar').show();
+    $('#prod-precio-compra').val(precio_compra);
+    $('#btn-borrar').show();          
+}
+
+function seleccionar_producto2(id){
+    $.ajax({
+        // la URL para la petición
+        url : urlServidor + 'configuraciones/listar/' + 1,
+        // especifica si será una petición POST o GET
+        type : 'GET',
+        // el tipo de información que se espera de respuesta
+        dataType : 'json',
+        success : function(response) {     
+            if(response.status){
+                let fila = '#item-prod-'+id;
+                let f = $(fila)[0].children;
+
+                let codigo = f[2].innerText;
+                let nombre = f[3].innerText;
+                let stock = f[4].innerText;
+                let precio_compra = f[5].innerText;
+                
+                $('#prod-id').val(id);
+                $('#prod-codigo').val(codigo);
+                $('#prod-nombre').val(nombre);
+                $('#prod-stock').val(stock);
+                $('#prod-precio-compra').val(precio_compra);
+                $('#btn-borrar').show();
+
+                let margen = (precio_compra * (response.config.porcentaje_ganancia)/100);
+                let precio_venta =  Number(precio_compra) + Number(margen);
+                //console.log(precio_venta.toFixed(2));
+                let producto_id = id;
+                let json = {
+                    datos: {
+                        producto_id,
+                        precio_venta,
+                        margen
+                    },
+                };
+                $.ajax({
+                    // la URL para la petición
+                    url : urlServidor + 'compra/actualizarPrecioVentaMargen',
+                    // especifica si será una petición POST o GET
+                    type : 'POST',
+                    data : "data=" + JSON.stringify(json),
+                    // el tipo de información que se espera de respuesta
+                    dataType : 'json',
+                    success : function(response) {
+                        console.log(response);
+                        if(response.status){
+                            Swal.fire(
+                                'Listo!',
+                                response.mensaje,
+                                'success'
+                            );
+                        }else{
+                            Swal.fire({
+                                title: 'Error!',
+                                text: response.mensaje,
+                                icon: 'error',
+                                confirmButtonText: 'Ok'
+                              })
+                        }
+                    },
+                    error : function(jqXHR, status, error) {
+                        console.log('Disculpe, existió un problema');
+                    },
+                    complete : function(jqXHR, status) {
+                        // console.log('Petición realizada');
+                    }
+                });
+            }
+        },
+        error : function(jqXHR, status, error) {
+            console.log('Disculpe, existió un problema');
+        },
+        complete : function(jqXHR, status) {
+            // console.log('Petición realizada');
+        }
+    });
 }
 
 function calcularTotal(){

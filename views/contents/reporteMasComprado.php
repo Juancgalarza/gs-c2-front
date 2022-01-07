@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Producto más Comprados</h1>
+                <h1 class="m-0"> <b>Producto Más Comprados</b> </h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -50,62 +50,66 @@
                 </button>
             </div>
         </div>
-        <div id="tabla-reporte" class="row bg-white d-none">
-            <div class="col-12 mt-3">
-                <div class="row">
-                    <div class="col-6 col-md-6 col-lg-9 " style="padding-left: 60px">
-                        <h3><b>BAURSA</b></h3>
-                        <h6>EQUIPOS MÁS COMPRADOS</h6>
-                        <h6 class="text-danger">DESDE: <span class="text-dark" id="inicio-reporte">2021/01/10</span> -
-                            HASTA: <span id="fin-reporte" class="text-dark">2021/05/15</span>
-                        </h6>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-3">
-                        <img src="<?=BASE?>views/dist/img/logoBaursa.jpg" alt="Logo de baursa" width="260px"
-                            style="margin-left: -130px;">
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-12 text-center">
-                        <div class="mt-3">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5 class="text-info">Lista de Productos Más Comprados</h5>
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body table-responsive p-0">
-                                    <table class="table table-hover text-nowrap">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Producto</th>
-                                                <th>Cantidad</th>
-                                                <th>Precio de Compra</th>
-                                                <th>Total $</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="body-mas-comprado">
-                                            
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- /.card-body -->
+        <div id="tabla-reporte" class="row d-none">
+            <div class="card card-danger card-outline shadow">
+                <div class="card-body">
+                    <div class="col-12 mt-3">
+                        <div class="row">
+                            <div class="col-6 col-md-6 col-lg-9 " style="padding-left: 60px">
+                                <h3><b>BAURSA</b></h3>
+                                <h6>EQUIPOS MÁS COMPRADOS</h6>
+                                <h6 class="text-danger">DESDE: <span class="text-dark" id="inicio-reporte">2021/01/10</span> -
+                                    HASTA: <span id="fin-reporte" class="text-dark">2021/05/15</span>
+                                </h6>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-3">
+                                <img src="<?=BASE?>views/dist/img/logoBaursa.jpg" alt="Logo de baursa" width="260px"
+                                    style="margin-left: -130px;">
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 text-right mb-2">
-                        <h4>Total General: $<span id="totalg"></span> </h4>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <h3 class="card-title"> <b>Cantidad de Productos Más Comprados</b> </h3>
-                        <div class="w-100" id="box-canva1">
-
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <h3 class="card-title"> <b>Porcentaje de Productos Más Comprados</b> </h3>
-                        <div class="w-100" id="box-canva2">
-
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <div class="mt-3">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5 class="text-info">Lista de Productos Más Comprados</h5>
+                                        </div>
+                                        <!-- /.card-header -->
+                                        <div class="card-body table-responsive p-0">
+                                            <table class="table table-hover text-nowrap">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Producto</th>
+                                                        <th>Cantidad</th>
+                                                        <th>Precio de Compra</th>
+                                                        <th>Total $</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="body-mas-comprado">
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- /.card-body -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 text-right mb-2">
+                                <h4>Total General: $<span id="totalg"></span> </h4>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <h3 class="card-title"> <b>Cantidad de Productos Más Comprados</b> </h3>
+                                <div class="w-100" id="box-canva1">
+        
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <h3 class="card-title"> <b>Porcentaje de Productos Más Comprados</b> </h3>
+                                <div class="w-100" id="box-canva2">
+        
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

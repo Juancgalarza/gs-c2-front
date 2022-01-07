@@ -19,7 +19,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Listado de Productos</h1>
+                <h1 class="m-0"> <b>Listado de Productos</b> </h1>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -31,7 +31,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <div class="card card-outline card-danger">
+                <div class="card card-outline card-danger shadow">
                     <!-- /.card-header -->
                     <div class="card-body">
                         <div class="div" style="overflow: auto;">
@@ -43,6 +43,7 @@
                                         <th>Código</th>
                                         <th>Nombre</th>
                                         <th>Categoría</th>
+                                        <th>Precio Compra</th>
                                         <th>Precio Venta</th>
                                         <th>Stock</th>
                                         <th>Estado</th>

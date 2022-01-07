@@ -1,9 +1,18 @@
+<style>
+canvas {
+    padding: 0;
+    margin: auto;
+    display: block;
+    width: 800px;
+}
+</style>
+
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Administrador</h1>
+                <h1 class="m-0"> <b>Administrador</b> </h1>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -15,7 +24,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-3 col-6">
-                <div class="info-box">
+                <div class="info-box shadow">
                     <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user-tie"></i></span>
 
                     <div class="info-box-content">
@@ -28,7 +37,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-6">
-                <div class="info-box">
+                <div class="info-box shadow">
                     <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-box"></i></span>
 
                     <div class="info-box-content">
@@ -41,7 +50,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-6">
-                <div class="info-box">
+                <div class="info-box shadow">
                     <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-dollar-sign"></i></span>
 
                     <div class="info-box-content">
@@ -54,7 +63,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-6">
-                <div class="info-box">
+                <div class="info-box shadow">
                     <span class="info-box-icon bg-success elevation-1"><i class="fas fa-search-dollar"></i></span>
 
                     <div class="info-box-content">
@@ -69,7 +78,7 @@
         </div>
         <div class="row">
             <div class="col-lg-4 col-6">
-                <div class="info-box">
+                <div class="info-box shadow">
                     <span class="info-box-icon bg-gray elevation-1"><i class="fas fa-truck"></i></span>
 
                     <div class="info-box-content">
@@ -82,7 +91,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-6">
-                <div class="info-box">
+                <div class="info-box shadow">
                     <span class="info-box-icon bg-info elevation-1"><i class="fas fa-bookmark"></i></span>
 
                     <div class="info-box-content">
@@ -95,7 +104,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-6">
-                <div class="info-box">
+                <div class="info-box shadow">
                     <span class="info-box-icon bg-gradient-danger elevation-1"><i class="fas fa-user-shield"></i></span>
 
                     <div class="info-box-content">
@@ -110,14 +119,14 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <div class="card card-warning">
+                <div class="card shadow card-warning">
                     <div class="card-header">
-                        <h3 class="card-title">Compras Anuales</h3>
+                        <h3 class="card-title"> <b class="text-white">Compras Anuales - <span id="anio-compra"></span></b> </h3>
                     </div>
                     <div class="card-body" style="background: white;">
                         <div class="chart">
                             <canvas id="compra-box"
-                                style="min-height: 250px; height: 350px; max-height: 350px; max-width: 100%;"></canvas>
+                                style="min-height: 250px; height: 350px; max-height: 350px; max-width: 90%;"></canvas>
                         </div>
                     </div>
                     <!-- /.card-body -->
@@ -126,14 +135,14 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <div class="card card-success">
+                <div class="card shadow card-success">
                     <div class="card-header">
-                        <h3 class="card-title">Ventas Anuales</h3>
+                        <h3 class="card-title"> <b>Ventas Anuales - <span id="anio-venta"></span></b> </h3>
                     </div>
                     <div class="card-body" style="background: white;">
                         <div class="chart">
                             <canvas id="venta-box"
-                                style="min-height: 250px; height: 350px; max-height: 350px; max-width: 100%;"></canvas>
+                                style="min-height: 250px; height: 350px; max-height: 350px; max-width: 90%;"></canvas>
                         </div>
                     </div>
                     <!-- /.card-body -->

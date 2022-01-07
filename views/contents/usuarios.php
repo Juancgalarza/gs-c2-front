@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Usuarios</h1>
+                <h1 class="m-0"> <b>Usuarios</b> </h1>
             </div>
             <div class="col-sm-6 text-right">
                 <a class="btn btn-primary btn-sm" id="agregar-rol-modal">
@@ -21,7 +21,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <div class="card card-danger" style="border: 1px solid #000;">
+                <div class="card card-danger shadow">
                     <div class="card-header">
                         <h3 class="card-title">Formulario de Usuario</h3>
                     </div>
@@ -119,6 +119,9 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <!-- <div class="col-12">
+                                            <div id="preview"></div>
+                                        </div> -->
                                     </div>
                                     <div class="card-footer">
                                         <button type="submit" class="btn btn-primary btn-sm"><i
@@ -127,6 +130,7 @@
                                                 class="fas fa-times mr-2"></i>Cancelar</button>
                                     </div>
                                 </form>
+                                <img id="imagen">
                             </div>
                         </div>
                     </div>

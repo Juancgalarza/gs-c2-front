@@ -61,7 +61,7 @@ $(function(){
                                     label: 'Compra',
                                     data: response.burbuja.data,
                                     //borderColor: Utils.CHART_COLORS.red,
-                                    backgroundColor: ["#fff706", "#fe0612","#282f34","#009000"],
+                                    backgroundColor: ["#fff706", "#fe0612","#282f34","#009000","#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#e8c3b9","#c45850","#3e95cd", "#8e5ea2","#3cba9f"],
                                   }
                                 ]
                               };
@@ -69,6 +69,8 @@ $(function(){
                               const config = {
                                 type: 'bubble',
                                 data: data,
+                                hoverBorderWidth: 5,
+                                hoverRadius: 5,
                                 options: {
                                   responsive: true,
                                   plugins: {
