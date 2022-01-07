@@ -58,6 +58,10 @@
                                             width="260px" style="margin-left: -75px;">
                                     </div>
                                 </div>
+                                <div class="d-flex justify-content-between">
+                                    <small><b>Fecha de Consulta: <span id="fecha-consulta"></span></b> </small>
+                                    <small><b>Hora de Consulta: <span id="hora-consulta"></span></b> </small>
+                                </div>
                                 <div class="row mt-3">
                                     <div class="col-12 text-center">
                                         <div class="mt-3">
@@ -68,8 +72,8 @@
                                                         <thead>
                                                             <tr>
                                                                 <th>#</th>
-                                                              <!--  <th>Fecha</th> -->
-                                                                 <th>Detalle</th>
+                                                                <!--  <th>Fecha</th> -->
+                                                                <th>Detalle</th>
                                                                 <th>Subtotal</th>
                                                                 <th>IVA</th>
                                                                 <th>Total</th>
@@ -79,7 +83,7 @@
 
                                                         </tbody>
                                                         <tfoot>
-                                                            
+
                                                             <td></td>
                                                             <th id="totales"></th>
                                                             <th id="subtotal-general"></th>

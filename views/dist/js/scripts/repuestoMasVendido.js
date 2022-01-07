@@ -42,6 +42,11 @@ $(function(){
                       'error'
                     )
                 }else{
+                    let f = new Date();
+                    let fecha = f.getDate() + '/' + (f.getMonth()+1) + '/' + f.getFullYear();
+                    let hora = f.getHours() + ':' + f.getMinutes() + ':' + f.getSeconds();
+                    $('#fecha-consulta').text(fecha);
+                    $('#hora-consulta').text(hora);
                     $('#inicio-reporte').text(desde);
                     $('#fin-reporte').text(hasta);
                     $.ajax({

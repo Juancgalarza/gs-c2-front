@@ -19,10 +19,11 @@
                 <select class="form-control" id="date-periodo-venta">
                     <option value="0">Seleccione una opción</option>
                     <option value="2021">2021</option>
+                    <option value="2022">2022</option>
                 </select>
             </div>
             <div class="col-6 col-md-4 col-lg-3" style="margin-top: 32px;">
-                <button class="btn btn-outline-primary mx-1px text-95" id="proy-play">
+                <button class="btn btn-outline-dark mx-1px text-95" id="proy-play">
                     <i class="mr-1 fa fa-play text-white-m1 text-120 w-2"></i>
                     Consultar
                 </button>
@@ -38,9 +39,9 @@
             </div>
             <div id="calcular-proy" class="col-6 col-md-4 col-lg-3 d-none">
                 <div class="btn-group btn-group-toggle" data-toggle="buttons" style="margin-top: 30px;">
-                    <label class="btn btn-primary active">
+                    <label class="btn btn-dark active">
                         <input type="radio" name="options" id="proy-calcular">
-                        <i class="fas fa-play mr-2"></i>$ Calcular
+                        <i class="fas fa-play mr-2"></i>$ Proyectar
                     </label>
                 </div>
             </div>

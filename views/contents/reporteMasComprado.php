@@ -58,7 +58,8 @@
                             <div class="col-6 col-md-6 col-lg-9 " style="padding-left: 60px">
                                 <h3><b>BAURSA</b></h3>
                                 <h6>EQUIPOS MÁS COMPRADOS</h6>
-                                <h6 class="text-danger">DESDE: <span class="text-dark" id="inicio-reporte">2021/01/10</span> -
+                                <h6 class="text-danger">DESDE: <span class="text-dark"
+                                        id="inicio-reporte">2021/01/10</span> -
                                     HASTA: <span id="fin-reporte" class="text-dark">2021/05/15</span>
                                 </h6>
                             </div>
@@ -66,6 +67,10 @@
                                 <img src="<?=BASE?>views/dist/img/logoBaursa.jpg" alt="Logo de baursa" width="260px"
                                     style="margin-left: -130px;">
                             </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <small><b>Fecha de Consulta: <span id="fecha-consulta"></span></b> </small>
+                            <small><b>Hora de Consulta: <span id="hora-consulta"></span></b> </small>
                         </div>
                         <div class="row mt-3">
                             <div class="col-12 text-center">
@@ -87,7 +92,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody id="body-mas-comprado">
-                                                    
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -101,13 +106,13 @@
                             <div class="col-12 col-md-6">
                                 <h3 class="card-title"> <b>Cantidad de Productos Más Comprados</b> </h3>
                                 <div class="w-100" id="box-canva1">
-        
+
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <h3 class="card-title"> <b>Porcentaje de Productos Más Comprados</b> </h3>
                                 <div class="w-100" id="box-canva2">
-        
+
                                 </div>
                             </div>
                         </div>
