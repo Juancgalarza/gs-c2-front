@@ -112,7 +112,7 @@ function ver_factura(id){
               if(response.status){
                   let compra_id = response.compra.id;
                   let numero_serie = response.compra.serie_documento;
-                  let compra_fecha = response.compra.fecha_compra;
+                  let compra_fecha = response.compra.fecha_entrega;
                   let proveedor_compra = response.compra.proveedor.razon_social;
                   let proveedor_direccion = response.compra.proveedor.direccion;
                   let proveedor_correo = response.compra.proveedor.correo;
@@ -159,7 +159,7 @@ function ver_factura(id){
 function confirmar_compra(id,estado_compra){  
     $.ajax({
         // la URL para la petición
-        url : urlServidor + 'compra/confirmarCompra/' + id + '/' + estado_compra,
+        url : urlServidor + 'compra/confirmarCompra/' + id + '/' + estado_compra, 
         // especifica si será una petición POST o GET
         type : 'GET',
         // el tipo de información que se espera de respuesta

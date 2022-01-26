@@ -1,6 +1,6 @@
 $(function(){
     const WIDTH = 600;
-    const HEIGHT = 300;
+    const HEIGHT = 500;
     _init();
 
     function _init(){
@@ -168,8 +168,8 @@ $(function(){
                         'success'
                     );
                     $('#formulario-producto')[0].reset();
-                    guardarCodigo();   
-
+                    guardarCodigo(); 
+                    
                 }else{
                     Swal.fire({
                         title: 'Error!',
@@ -285,8 +285,9 @@ $(function(){
         $('#imagen-producto').change((event) => {
             var file, img;
             if ((file = event.target.files[0])) {
-                img = new Image();
-                img.onload = function () {
+                img = new Image(); 
+
+                 img.onload = function () {    
                     if(this.width <= WIDTH && this.height <= HEIGHT){
                         Swal.fire({
                             title: 'Listo!',
@@ -294,18 +295,23 @@ $(function(){
                             icon: 'success',
                             confirmButtonText: 'Ok'
                         });
+                        $('#guardar-producto').attr('disabled',false);
                         return true;
+                        
+
                     }else{
                         Swal.fire({
                             title: 'Error!',
-                            text: 'La imgen no cumple con las dimensiones 600x300',
+                            text: 'La imgen no cumple con las dimensiones ' + WIDTH + ' x ' + HEIGHT,
                             icon: 'error',
                             confirmButtonText: 'Ok'
                         });
+                        $('#guardar-producto').attr('disabled',true);                        
                         return false;
                     }
+   
                 };
-            
+    
                 img.src = _URL.createObjectURL(file);
             }
         });

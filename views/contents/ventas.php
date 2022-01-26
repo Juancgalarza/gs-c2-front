@@ -19,7 +19,7 @@
                     <div class="card-header">
                         <h3 class="card-title">
                             <i class="fas fa-shopping-cart"></i>
-                            Nueva Venta
+                            Nueva Orden de Venta
                         </h3>
                         <div class="card-tools">
                             <div class="col-12">

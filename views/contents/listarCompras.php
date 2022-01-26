@@ -80,7 +80,7 @@
                                         <div class="factura-header-prov" style="overflow: auto;">
                                             <span style="color: black;">N° de Serie: <b id="compra_numero_serie"></b></span>
                                             <span style="color: black;">Proveedor: <b id="compra_proveedor"></b></span>
-                                            <span style="color: black;">Fecha de compra: <b id="compra_fecha"></b></span>
+                                            <span style="color: black;">Fecha de Entrega: <b id="compra_fecha"></b></span>
                                         </div>
                                     </div>
 
@@ -111,7 +111,7 @@
                                     <div class="row mt-4">
                                         <div class="col-6 col-md-3  box-items">
                                             <div class="item-valores">
-                                                <b style="color: black;">$ Subototal</b>
+                                                <b style="color: black;">$ Subtotal</b>
                                                 <span style="color: black;" id="compra_subtotal" class="text-center">0.00</span>
                                             </div>
                                         </div>
@@ -123,12 +123,12 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-6 col-md-3 box-items">
+                                       <!-- <div class="col-6 col-md-3 box-items">
                                             <div class="item-valores">
                                                 <b style="color: black;">$ Descuento</b>
                                                 <span style="color: black;" id="compra_descuento" class="text-center">0.00</span>
                                             </div>
-                                        </div>
+                                        </div> -->
 
                                         <div class="col-6 col-md-3  box-items">
                                             <div class="item-valores">

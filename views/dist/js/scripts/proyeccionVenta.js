@@ -27,7 +27,9 @@ $(function(){
                     // el tipo de información que se espera de respuesta
                     dataType : 'json',
                     success : function(response) { 
+                      console.log(response);
                         if(response.status){
+
                             let tr = '';
                             let i = 1;
                             response.tabla.forEach(element => {
@@ -85,7 +87,7 @@ $(function(){
                               const burbuga = new Chart(
                                 elementCanvas, config
                               )
-
+                              $('#error').text(response.data.error);
 
                         }else{
                             Swal.fire(
@@ -161,6 +163,9 @@ $(function(){
             let fx = a + (b * i);
             datos.push(fx);
           }
+
+          
+
 
           /* Canvas 1 */
           $('#box-canva2').html('');

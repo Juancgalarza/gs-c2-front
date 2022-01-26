@@ -121,6 +121,13 @@
                             <!-- /.card-body -->
                         </div>
                     </div>
+
+                    <div class="col-sm-12 col-6"> 
+                        <div class="description-block border-right">
+                            <h5 class="description-header" id="error">--------</h5>
+                            <span class="description-text">Error de la Regresion Lineal</span>
+                        </div>    
+                    </div>
                 </div>
             </div>
         </div>

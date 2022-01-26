@@ -73,8 +73,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Dirección</label>
-                                <textarea class="form-control form-control-sm" id="direccion-cliente" rows="2"
-                                    placeholder="Dirección"></textarea>
+                                <input class="form-control form-control-sm" id="direccion-cliente" 
+                                    placeholder="Dirección"></input>
                             </div>
                         </div>
                         <!-- /.card-body -->
@@ -98,4 +98,4 @@
 <script src="<?=BASE?>views/plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?=BASE?>views/plugins/jquery-validation/additional-methods.min.js"></script>
 
-<script src="<?=BASE?>views/dist/js/scripts/clientes.js?Ver=1.1.1.2"></script>
+<script src="<?=BASE?>views/dist/js/scripts/clientes.js?ver=1.1.1.1"></script>

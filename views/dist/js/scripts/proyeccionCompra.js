@@ -88,6 +88,9 @@ $(function(){
                                 elementCanvas, config
                               )
 
+                              $('#error-compra').text(response.data.error);
+
+
 
                         }else{
                             Swal.fire(

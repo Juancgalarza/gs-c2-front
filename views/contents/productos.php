@@ -18,21 +18,19 @@
                 <div class="card card-danger shadow">
                     <div class="card-header">
                         <h3 class="card-title">Nuevo Producto</h3>
+
+                        <div class="card-tools">
+                            <div class="col-12">
+                                <span> <b>Número de Serie:</b> <b id="codigo-producto"></b> </span>
+                            </div>
+                        </div>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
                     <form id="formulario-producto" type="POST" enctype="multipart/formdata">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <label>Código</label>
-                                        <div class="d-flex justify-content-center">
-                                            <span id="codigo-producto" style="font-size: 1.2rem"
-                                                class="badge bg-primary"></span>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nombre</label>
@@ -72,7 +70,7 @@
                                         <label for="imagen-producto">Imagen</label>
                                         <div class="input-group">
                                             <div class="custom-file form-control-sm">
-                                                <input type="file" name="img" id="imagen-producto"
+                                                <input type="file" name="img" id="imagen-producto" 
                                                     class="custom-file-input" accept="image/*">
                                                 <label class="custom-file-label" for="exampleInputFile">Subir
                                                     Archivo</label>
@@ -94,7 +92,7 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary btn-sm"><i
+                            <button type="submit" id="guardar-producto" disabled class="btn btn-primary btn-sm"><i
                                     class="far fa-save mr-2"></i>Guardar</button>
                             <button type="button" class="btn btn-danger btn-sm" id="btn-cancelar"><i
                                     class="fas fa-times mr-2"></i>Cancelar</button>

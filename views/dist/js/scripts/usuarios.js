@@ -1,6 +1,6 @@
 /* $(function(){ */
     const WIDTH = 600;
-    const HEIGHT = 300;
+    const HEIGHT = 500; 
     _init();
 
     function _init() {
@@ -24,6 +24,7 @@
             // el tipo de información que se espera de respuesta
             dataType: 'json',
             success: function (response) {
+               // console.log(response);
                 if (response.status) {
                     let option = '<option value=0>Seleccione el Rol</option>';
 
@@ -664,20 +665,25 @@
                             icon: 'success',
                             confirmButtonText: 'Ok'
                         });
+                        $('#btn-guardar').attr('disabled',false);
+
                         return true;
                     }else{
                         Swal.fire({
                             title: 'Error!',
-                            text: 'La imgen no cumple con las dimensiones 600x300',
+                            text: 'La imgen no cumple con las dimensiones' + WIDTH + ' x ' + HEIGHT,
                             icon: 'error',
                             confirmButtonText: 'Ok'
                         });
+                        $('#btn-guardar').attr('disabled',true);
+
                         return false;
                     }
                 };
-            
-                img.src = _URL.createObjectURL(file);
+                
+                
             }
+            img.src = _URL.createObjectURL(file);
         });
     }
 
@@ -697,6 +703,7 @@ function cargar_rol(id) {
         // el tipo de información que se espera de respuesta
         dataType: 'json',
         success: function (response) {
+            console.log(response);
             if (response.status) {
                 $('#upd-rol-id').val(response.rol.id);
                 $('#upd-rol').val(response.rol.cargo);

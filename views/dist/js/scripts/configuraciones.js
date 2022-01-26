@@ -83,6 +83,7 @@ $(function(){
                     });
                     $('#formulario-configuraciones')[0].reset();
                     cargarDataConfig();
+                    actulizarPventa();   
                 }else{
                     Swal.fire({
                         title: 'Configuraciones',
@@ -105,5 +106,84 @@ $(function(){
         $('#btn-cancelar').click(function(){
             window.location.href = urlCliente + 'inicio/administrador';
         });
+    }
+
+    function actulizarPventa(){
+        $.ajax({
+            // la URL para la petición
+            url : urlServidor + 'configuraciones/listar/'+1,
+            // especifica si será una petición POST o GET
+            type : 'GET',
+            // el tipo de información que se espera de respuesta
+            dataType : 'json',
+            success : function(response) {
+                if(response.status){
+                    let porcentaje_ganancia = response.config.porcentaje_ganancia;
+                    $.ajax({
+                        // la URL para la petición
+                        url : urlServidor + 'producto/listar',
+                        // especifica si será una petición POST o GET
+                        type : 'GET',
+                        // el tipo de información que se espera de respuesta
+                        dataType : 'json',
+                        success : function(response) {
+                         
+                            if(response.length > 0){
+                                let i = 1;
+                                response.forEach(element => {
+                                    let producto_id = element.id;
+                                    let margenf = (element.precio_compra * (porcentaje_ganancia)/100);
+                                    let margen = margenf.toFixed(2);
+                                    let precio_ventaf =  Number(element.precio_compra) + Number(margen);
+                                    let precio_venta = precio_ventaf.toFixed(2);
+                                    console.log(precio_venta);
+
+                                    let json = {
+                                        config :{
+                                           producto_id : producto_id,
+                                            margen: margen,
+                                            precio_venta: precio_venta
+                                        }
+                                    }
+
+                                    $.ajax({
+                                        // la URL para la petición
+                                        url : urlServidor + 'configuraciones/actualizarPventa',
+                                        data : "data=" + JSON.stringify(json),
+                                        // especifica si será una petición POST o GET
+                                        type : 'POST',
+                                        // el tipo de información que se espera de respuesta
+                                        dataType : 'json',
+                                        success : function(response) {
+                                            console.log('Exito');
+                                        },
+                                        error : function(jqXHR, status, error) {
+                                            console.log('Disculpe, existió un problema');
+                                        },
+                                        complete : function(jqXHR, status) {
+                                            // console.log('Petición realizada');
+                                        }
+                                    });
+                                  
+                                });
+                               
+                            }
+                        },
+                        error : function(jqXHR, status, error) {
+                            console.log('Disculpe, existió un problema');
+                        },
+                        complete : function(jqXHR, status) {
+                            // console.log('Petición realizada');
+                        }
+                    });
+                }
+            },
+            error : function(jqXHR, status, error) {
+                console.log('Disculpe, existió un problema');
+            },
+            complete : function(jqXHR, status) {
+                // console.log('Petición realizada');
+            }
+        }); 
     }
 });

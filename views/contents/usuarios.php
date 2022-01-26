@@ -35,26 +35,22 @@
                                     <div class="row">
                                         <div class="col-6 form-group">
                                             <label for="">Cédula</label>
-                                            <input type="text" class="form-control form-control-sm solo-numeros" placeholder="Cédula"
+                                            <input type="text" class="form-control form-control-sm soloNumeros" placeholder="Cédula"
                                                 id="form-cedula" name="cedula" maxlength="10" minlength="10" required>
                                         </div>
 
-                                        <div class="col-6 form-group">
-                                            <label for="">Teléfono</label>
-                                            <input type="text" class="form-control form-control-sm solo-numeros" placeholder="Teléfono"
-                                                id="form-telefono" name="telefono" maxlength="10" minlength="10">
-                                        </div>
+                                       
                                     </div>
                                     <div class="row">
                                         <div class="col-6 form-group">
                                             <label for="">Nombres</label>
-                                            <input type="text" class="form-control form-control-sm solo-letras" placeholder="Nombres"
+                                            <input type="text" class="form-control form-control-sm letras-vd" placeholder="Nombres"
                                                 id="form-nombres" maxlength="150" minlength="3" name="nombres" required>
                                         </div>
 
                                         <div class="col-6 form-group">
                                             <label for="">Apellidos</label>
-                                            <input type="text" class="form-control form-control-sm solo-letras" placeholder="Apellidos"
+                                            <input type="text" class="form-control form-control-sm letras-vd" placeholder="Apellidos"
                                                 id="form-apellidos" maxlength="150" minlength="3" name="apellidos">
                                         </div>
                                     </div>
@@ -64,12 +60,23 @@
                                             <input type="email" class="form-control form-control-sm" placeholder="Correo"
                                                 id="form-correo" name="correo">
                                         </div>
-                                        <div class="col-6 form-group">
+
+                                          <div class="col-6 form-group">
+                                            <label for="">Teléfono</label>
+                                            <input type="text" class="form-control form-control-sm soloNumeros" placeholder="Teléfono"
+                                                id="form-telefono" name="telefono" maxlength="10" minlength="10">
+                                        </div> 
+
+                                    </div>
+                                    <div class="row">
+                                    <div class="col-12 form-group">
                                             <label for="exampleInputEmail1">Dirección</label>
-                                            <textarea class="form-control form-control-sm" id="form-direccion" rows="1"
-                                                placeholder="Dirección"></textarea>
+                                            <input class="form-control form-control-sm" id="form-direccion" 
+                                                placeholder="Dirección"></input>
                                         </div>
                                     </div>
+
+
                                     <hr class="bg-white mt-3 mb-3">
                                     <h3> <b>Datos de Usuario</b> </h3>
                                     <div class="row">
@@ -111,7 +118,7 @@
                                                 <label for="form-img-usuario">Imagen</label>
                                                 <div class="input-group">
                                                     <div class="custom-file form-control-sm">
-                                                        <input type="file" name="img" id="form-img-usuario"
+                                                        <input type="file" name="img" id="form-img-usuario" 
                                                             class="custom-file-input" accept="image/*">
                                                         <label class="custom-file-label" for="exampleInputFile">Subir
                                                             Archivo</label>
@@ -124,7 +131,7 @@
                                         </div> -->
                                     </div>
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary btn-sm"><i
+                                        <button type="submit" id="btn-guardar" disabled class="btn btn-primary btn-sm"><i
                                                 class="far fa-save mr-2"></i>Guardar</button>
                                         <button type="button" class="btn btn-danger btn-sm" id="btn-cancelar"><i
                                                 class="fas fa-times mr-2"></i>Cancelar</button>
@@ -249,4 +256,4 @@
 <script src="<?=BASE?>views/plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?=BASE?>views/plugins/jquery-validation/additional-methods.min.js"></script>
 
-<script src="<?=BASE?>views/dist/js/scripts/usuarios.js"></script>
+<script src="<?=BASE?>views/dist/js/scripts/usuarios.js?ver=1.1.1.2"></script>

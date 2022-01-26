@@ -29,7 +29,7 @@
                                         <th># Serie</th>
                                         <th>Cliente</th>
                                         <th>Total Ventas</th>
-                                        <th>Fecha Vernta</th>
+                                        <th>Fecha Venta</th>
                                         <th>Ver Detalle</th>
                                     </tr>
                                 </thead>
@@ -128,7 +128,7 @@
 
                                                     <div class="col-6 col-md-3  box-items">
                                                         <div class="item-valores">
-                                                            <b style="color: black;">$ Subototal</b>
+                                                            <b style="color: black;">$ Subtotal</b>
                                                             <span style="color: black;" id="compra_subtotal"
                                                                 class="text-center">0.00</span>
                                                         </div>
@@ -142,13 +142,13 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-6 col-md-3 box-items">
+                                                 <!-- <div class="col-6 col-md-3 box-items">
                                                         <div class="item-valores">
                                                             <b style="color: black;">$ Descuento</b>
                                                             <span style="color: black;" id="compra_descuento"
                                                                 class="text-center">0.00</span>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
 
                                                     <div class="col-6 col-md-3  box-items">
                                                         <div class="item-valores">

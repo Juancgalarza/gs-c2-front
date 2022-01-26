@@ -85,4 +85,4 @@
 <script src="<?=BASE?>views/plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?=BASE?>views/plugins/jquery-validation/additional-methods.min.js"></script>
 
-<script src="<?=BASE?>views/dist/js/scripts/proveedores.js"></script>
+<script src="<?=BASE?>views/dist/js/scripts/proveedores.js?ver=1.1.1.2"></script>

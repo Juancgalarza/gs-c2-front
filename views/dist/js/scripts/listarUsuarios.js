@@ -210,7 +210,7 @@ function recuperar_rol(){
             if(response.status){
                 let option = '<option value=0>Seleccione el Rol</option>';
 
-                response.cargo.forEach(element => {
+                response.rol.forEach(element => {
                      option += `<option value=${element.id}>${element.cargo}</option>`;                                            
                 });
                 $('#upd-select-rol').html(option);
